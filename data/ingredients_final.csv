@@ -1,0 +1,144 @@
+;X;id;name;shopping;expiry;alt_name;Food;co2_gram;kcal_gram
+1;1;794;salt;0;99999;NA;NA;NA;NA
+2;2;156;lime;1;14;NA;NA;NA;NA
+3;3;593;ghee;0;180;NA;NA;NA;NA
+4;4;802;feta;1;60;NA;NA;NA;NA
+5;5;771;beer;1;365;NA;NA;NA;NA
+6;6;17;leek;1;5;NA;NA;NA;NA
+7;7;1088;milk;1;14;NA;NA;NA;NA
+8;8;919;peas;1;7;NA;NA;NA;NA
+9;9;1020;basil;1;7;NA;NA;NA;NA
+10;10;1104;onion;1;14;NA;NA;NA;NA
+11;11;790;honey;1;730;NA;honey;2,204761905;0,033333333
+12;12;158;lemon;1;14;NA;NA;NA;NA
+13;13;182;mango;1;7;NA;NA;NA;NA
+14;14;1067;bacon;1;14;NA;NA;NA;NA
+15;15;994;penne;1;365;NA;NA;NA;NA
+16;16;591;butter;1;30;NA;butter;5,3;0,053333333
+17;17;485;quinoa;0;180;NA;NA;NA;NA
+18;18;114;apples;1;14;NA;apples;0,762142857;0,009285714
+19;19;1149;bulgur;0;365;NA;NA;NA;NA
+20;20;33;capers;1;365;NA;NA;NA;NA
+21;21;66;celery;1;14;NA;celery;0,472941176;0,034117647
+22;22;160;orange;1;14;NA;NA;NA;NA
+23;23;889;tahini;0;30;NA;NA;NA;NA
+24;24;73;carrots;1;14;NA;carrots;0,410588235;0,011764706
+25;25;807;raisins;1;180;NA;NA;NA;NA
+26;26;16;shallot;1;14;NA;NA;NA;NA
+27;27;613;soy oil;0;365;NA;NA;NA;NA
+28;28;150;almonds;1;180;NA;almonds;5,536666667;0,033333333
+29;29;542;yoghurt;1;28;NA;NA;NA;NA
+30;30;68;potatoes;1;28;NA;potatoes;0,178181818;0,001818182
+31;31;22;broccoli;1;3;NA;broccoli;0,911764706;0,031764706
+32;32;37;cucumber;1;4;NA;NA;NA;NA
+33;33;35;avocados;1;4;NA;avocados;2,263333333;0,046666667
+34;34;18;scallion;1;4;NA;NA;NA;NA
+35;35;608;olive oil;1;180;NA;olive oil;6,586666667;0,053333333
+36;36;999;spaghetti;0;730;NA;NA;NA;NA
+37;37;891;ice cubes;0;99999;NA;NA;NA;NA
+38;38;71;kohlrabis;1;7;NA;NA;NA;NA
+39;39;625;pine nuts;1;365;NA;NA;NA;NA
+40;40;774;soy sauce;0;365;NA;NA;NA;NA
+41;41;859;plain curd;1;14;NA;NA;NA;NA
+42;42;655;fresh mint;1;7;NA;NA;NA;NA
+43;43;775;fish sauce;0;90;NA;fish;3,761818182;0,019090909
+45;44;266;lamb chops;1;3;NA;lamb;12,34561404;0,027192982
+46;45;805;red pepper;1;7;NA;NA;NA;NA
+47;46;659;fresh sage;1;7;NA;NA;NA;NA
+48;47;761;mayonnaise;1;60;NA;NA;NA;NA
+49;48;221;pork belly;1;5;NA;pork;7,95;0,027192982
+50;49;1140;pork roast;1;5;NA;pork;7,95;0,027192982
+51;50;800;red onions;1;14;NA;onions;0,394117647;0,011764706
+52;51;611;sesame oil;0;365;NA;NA;NA;NA
+53;52;783;lemon juice;1;365;NA;NA;NA;NA
+54;53;789;white sugar;0;99999;NA;NA;NA;NA
+55;54;680;cumin seeds;0;365;NA;NA;NA;NA
+56;55;706;dried basil;0;365;NA;NA;NA;NA
+57;56;726;dried thyme;0;365;NA;NA;NA;NA
+58;57;241;minced beef;1;3;NA;beef;8,628018131;0,015873296
+59;58;855;breadcrumbs;1;28;NA;NA;NA;NA
+60;59;21;cauliflower;1;3;NA;cauliflower;0,976470588;0,047058824
+61;60;860;frozen peas;1;730;NA;NA;NA;NA
+62;61;811;wheat flour;0;365;NA;wheat;0,48;0,002222222
+63;61;811;wheat flour;0;365;NA;wheat flour;0,7;0,006666667
+64;62;138;blueberries;1;5;NA;blueberries;2,773571429;0,035
+65;63;600;coconut oil;0;365;NA;coconut oil;1,666666667;0,013333333
+66;64;640;fresh basil;1;7;NA;NA;NA;NA
+67;65;272;minced lamb;1;3;NA;lamb;12,34561404;0,027192982
+68;66;175;pomegranate;1;30;NA;NA;NA;NA
+69;67;19;fresh garlic;1;14;NA;NA;NA;NA
+70;68;728;garam masala;1;180;NA;NA;NA;NA
+71;69;869;chili powder;0;730;NA;NA;NA;NA
+72;70;739;cumin powder;0;730;NA;NA;NA;NA
+73;71;670;fresh ginger;1;28;NA;NA;NA;NA
+74;72;14;fresh onions;1;14;NA;onions;0,394117647;0,011764706
+75;73;882;garlic paste;1;365;NA;NA;NA;NA
+76;74;1145;tomato sauce;1;730;NA;NA;NA;NA
+77;75;634;chicken eggs;1;28;NA;eggs;1,981666667;0,028333333
+78;76;881;ginger paste;1;180;NA;NA;NA;NA
+79;77;459;basmati rice;0;365;NA;NA;NA;NA
+80;78;901;cheese slice;1;14;NA;cheese;8,825552479;0,084657578
+81;79;853;green olives;1;30;NA;olives;1,066666667;0,046666667
+82;80;269;lamb fillets;1;3;NA;lamb;12,34561404;0,027192982
+83;81;799;pearl onions;0;365;NA;onions;0,394117647;0,011764706
+84;82;623;sesame seeds;0;365;NA;NA;NA;NA
+85;83;134;strawberries;1;3;NA;strawberries;2,187857143;0,048571429
+86;84;757;tomato paste;1;360;NA;NA;NA;NA
+87;85;779;chicken stock;0;730;NA;NA;NA;NA
+88;86;722;dried oregano;0;365;NA;NA;NA;NA
+89;87;777;apple vinegar;0;730;NA;NA;NA;NA
+90;88;733;ground nutmeg;1;365;NA;NA;NA;NA
+91;89;612;sunflower oil;0;365;NA;sunflower oil;0,966666667;0,006666667
+92;90;785;coconut cream;0;365;NA;NA;NA;NA
+93;91;541;cr<e8>me fra<ee>che;1;7;NA;NA;NA;NA
+94;92;765;dijon mustard;1;365;NA;NA;NA;NA
+95;93;20;garlic powder;1;365;NA;NA;NA;NA
+96;94;803;green peppers;1;7;NA;NA;NA;NA
+97;95;731;ground ginger;1;365;NA;NA;NA;NA
+98;96;806;salted butter;1;21;NA;butter;5,3;0,053333333
+99;97;865;walnut halves;1;180;NA;NA;NA;NA
+100;98;189;whole chicken;1;3;NA;NA;NA;NA
+101;99;732;curcuma powder;0;365;NA;NA;NA;NA
+102;100;724;dried rosemary;0;365;NA;NA;NA;NA
+103;101;883;paprika powder;0;365;NA;NA;NA;NA
+105;102;81;sweet potatoes;1;21;NA;sweet potatoes;0,494545455;0,005454545
+106;103;878;condensed milk;0;365;NA;NA;NA;NA
+107;104;877;dark chocolate;0;365;NA;NA;NA;NA
+108;105;719;dried bay leaf;1;365;NA;NA;NA;NA
+109;106;41;fresh tomatoes;1;7;NA;tomatoes;1,032941176;0,064705882
+110;107;576;grated cheddar;1;30;NA;NA;NA;NA
+111;108;546;whipping cream;1;5;NA;NA;NA;NA
+112;109;804;yellow peppers;1;7;NA;NA;NA;NA
+113;110;649;fresh coriander;1;7;NA;NA;NA;NA
+114;111;43;canned tomatoes;1;365;NA;tomatoes;1,032941176;0,064705882
+115;112;735;ground cinnamon;0;365;NA;NA;NA;NA
+116;113;584;grated parmesan;1;21;NA;NA;NA;NA
+117;114;1136;cherry tomatoes;1;7;NA;tomatoes;1,032941176;0,064705882
+118;115;190;chicken breasts;1;3;NA;NA;NA;NA
+119;116;741;ground cardamom;1;365;NA;NA;NA;NA
+120;117;754;red curry paste;0;180;NA;NA;NA;NA
+121;118;778;vegetable stock;0;360;NA;NA;NA;NA
+122;119;736;ground coriander;1;365;NA;NA;NA;NA
+123;120;776;balsamic vinegar;0;365;NA;NA;NA;NA
+124;121;523;whole cow's milk;1;14;NA;NA;NA;NA
+125;122;61;canned chickpeas;0;365;NA;NA;NA;NA
+126;123;843;fresh lemongrass;1;7;NA;NA;NA;NA
+127;124;1144;dried red peppers;0;365;NA;NA;NA;NA
+128;125;880;fresh green beans;1;7;NA;NA;NA;NA
+129;126;900;white wine vinegar;0;730;NA;NA;NA;NA
+130;127;49;canned black beans;0;365;NA;NA;NA;NA
+131;128;849;precooked beetroot;1;21;NA;NA;NA;NA
+132;129;768;white cooking wine;0;730;NA;NA;NA;NA
+133;130;740;ground black pepper;0;365;NA;NA;NA;NA
+134;131;682;chili pepper flakes;0;365;NA;NA;NA;NA
+135;132;879;chocolate sprinkles;1;365;NA;NA;NA;NA
+136;133;727;yellow curry powder;0;365;NA;NA;NA;NA
+137;134;12;fresh spinach leaves;1;7;NA;spinach;0,964705882;0,048235294
+138;135;792;pomegranate molasses;1;30;NA;NA;NA;NA
+139;136;1146;Kashmiri chili powder;0;365;NA;NA;NA;NA
+140;137;40;fresh red chili pepper;1;21;NA;NA;NA;NA
+141;138;564;grated mountain cheese;1;21;NA;cheese;8,825552479;0,084657578
+142;139;657;fresh flat-leaf parsley;1;7;NA;NA;NA;NA
+143;140;83;fresh white champignons;1;7;NA;pig;7,23245614;0,016666667
+144;141;873;fresh green chili pepper;1;5;NA;NA;NA;NA
+145;142;864;sushi grade flounder filets;1;1;NA;NA;NA;NA
