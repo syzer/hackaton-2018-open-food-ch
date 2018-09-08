@@ -1,0 +1,546 @@
+{
+  "properties": { "language": "en-GB", "portions": 5 },
+  "ingredientsArr": [
+    {
+      "id": 878,
+      "name": "condensed milk",
+      "amount": 400.0,
+      "unit": "grams",
+      "groupName": "Dairy_Products"
+    },
+    {
+      "id": 879,
+      "name": "chocolate sprinkles",
+      "amount": 200.0,
+      "unit": "grams",
+      "groupName": "Herbs_Spices_and_Flavours"
+    },
+    {
+      "id": 877,
+      "name": "dark chocolate",
+      "amount": 150.0,
+      "unit": "grams",
+      "groupName": "Herbs_Spices_and_Flavours"
+    },
+    {
+      "id": 591,
+      "name": "butter",
+      "amount": 150.0,
+      "unit": "grams",
+      "groupName": "Oils_Fats"
+    }
+  ],
+  "toolsArr": {
+    "52": { "name": "can opener", "amount": 1.0 },
+    "25": { "name": "medium-sized saucepan", "amount": 1.0 },
+    "58": { "name": "cooking spoon", "amount": 1.0 },
+    "94": { "name": "medium-sized bowl", "amount": 1.0 },
+    "95": { "name": "small bowl", "amount": 1.0 }
+  },
+  "actionsArr": {
+    "85": {
+      "name": "Open",
+      "actionKey": "open",
+      "imageUrl": "http://api.digimeals.com/data/images/Action/cover.svg",
+      "stepType": 1
+    },
+    "71": {
+      "name": "Break",
+      "actionKey": "break",
+      "imageUrl": "http://api.digimeals.com/data/images/Action/knife.svg",
+      "stepType": 1
+    },
+    "1": {
+      "name": "Add",
+      "actionKey": "add",
+      "imageUrl": "http://api.digimeals.com/data/images/Action/add.svg",
+      "stepType": 1
+    },
+    "107": {
+      "name": "Melt",
+      "actionKey": "melt",
+      "imageUrl": "http://api.digimeals.com/data/images/Action/heat.svg",
+      "stepType": 1
+    },
+    "33": {
+      "name": "Switch",
+      "actionKey": "turn off",
+      "imageUrl": "http://api.digimeals.com/data/images/Action/power.svg",
+      "stepType": 1
+    },
+    "109": {
+      "name": "Mix",
+      "actionKey": "mix",
+      "imageUrl": "http://api.digimeals.com/data/images/Action/mixer.svg",
+      "stepType": 1
+    },
+    "34": {
+      "name": "Switch",
+      "actionKey": "turn on",
+      "imageUrl": "http://api.digimeals.com/data/images/Action/power.svg",
+      "stepType": 1
+    },
+    "40": {
+      "name": "Cook",
+      "actionKey": "cook",
+      "imageUrl": "http://api.digimeals.com/data/images/Action/heat.svg",
+      "stepType": 2
+    },
+    "118": {
+      "name": "Stir",
+      "actionKey": "stir",
+      "imageUrl": "http://api.digimeals.com/data/images/Action/stir.svg",
+      "stepType": 1
+    },
+    "68": {
+      "name": "Transfer",
+      "actionKey": "transfer",
+      "imageUrl": "http://api.digimeals.com/data/images/Action/spoon.svg",
+      "stepType": 1
+    },
+    "41": {
+      "name": "Cool",
+      "actionKey": "cool",
+      "imageUrl": "http://api.digimeals.com/data/images/Action/fridge.svg",
+      "stepType": 2
+    },
+    "63": {
+      "name": "Form",
+      "actionKey": "form",
+      "imageUrl": "http://api.digimeals.com/data/images/Action/spoon.svg",
+      "stepType": 1
+    },
+    "3": {
+      "name": "Coat",
+      "actionKey": "coat",
+      "imageUrl": "http://api.digimeals.com/data/images/Action/brush.svg",
+      "stepType": 1
+    }
+  },
+  "textsArr": [
+    "Open 400 grams condensed milk with can opener",
+    "Break 150 grams dark chocolate into small pieces",
+    "Add 150 grams butter to medium-sized saucepan",
+    "Melt butter on low heat",
+    "Add dark chocolate pieces to saucepan",
+    "Turn hotplate off",
+    "Mix chocolate and butter with cooking spoon until homogeneous",
+    "Add condensed milk to saucepan",
+    "Mix chocolate and condensed milk with cooking spoon until homogeneous",
+    "Turn hotplate on",
+    "Cook chocolate mixture on low heat for 10 minutes",
+    "Stir chocolate mixture every 30 seconds",
+    "Transfer chocolate mixture to medium-sized bowl",
+    "Cool chocolate mixture in fridge for 40 minutes",
+    "Add 200 grams chocolate sprinkles to empty small bowl",
+    "Form chocolate mixture into small balls",
+    "Coat chocolate balls generously with chocolate sprinkles",
+    ""
+  ],
+  "actions": [
+    {
+      "index": 0,
+      "action": 85,
+      "frame": [0, 60],
+      "text": 0,
+      "timerValue": 0,
+      "nextStep": [1],
+      "passiveMaster": null,
+      "firstParallel": null,
+      "lastParallel": null,
+      "sequenceParallel": [],
+      "constraints": [],
+      "smartOutput": {
+        "toolId": 52,
+        "tool": "can opener",
+        "action": "Open",
+        "temperature": null,
+        "duration": 60,
+        "ingredients": [{ "id": 878, "amount": 400.0 }],
+        "cutSize": null
+      }
+    },
+    {
+      "index": 1,
+      "action": 71,
+      "frame": [60, 15],
+      "text": 1,
+      "timerValue": 0,
+      "nextStep": [2],
+      "passiveMaster": null,
+      "firstParallel": null,
+      "lastParallel": null,
+      "sequenceParallel": [],
+      "constraints": [],
+      "smartOutput": {
+        "toolId": null,
+        "tool": null,
+        "action": "Break",
+        "temperature": null,
+        "duration": 15,
+        "ingredients": [{ "id": 877, "amount": 150.0 }],
+        "cutSize": "pieces;;;"
+      }
+    },
+    {
+      "index": 2,
+      "action": 1,
+      "frame": [75, 30],
+      "text": 2,
+      "timerValue": 0,
+      "nextStep": [3],
+      "passiveMaster": null,
+      "firstParallel": null,
+      "lastParallel": null,
+      "sequenceParallel": [],
+      "constraints": [],
+      "smartOutput": {
+        "toolId": 25,
+        "tool": "medium-sized saucepan",
+        "action": "Add",
+        "temperature": null,
+        "duration": 30,
+        "ingredients": [{ "id": 591, "amount": 150.0 }],
+        "cutSize": null
+      }
+    },
+    {
+      "index": 3,
+      "action": 107,
+      "frame": [105, 60],
+      "text": 3,
+      "timerValue": 0,
+      "nextStep": [4],
+      "passiveMaster": null,
+      "firstParallel": null,
+      "lastParallel": null,
+      "sequenceParallel": [],
+      "constraints": [{ "relation": [2] }],
+      "smartOutput": {
+        "toolId": 25,
+        "tool": "medium-sized saucepan",
+        "action": "Melt",
+        "temperature": null,
+        "duration": 60,
+        "ingredients": [{ "id": 591, "amount": 0.0 }],
+        "cutSize": null
+      }
+    },
+    {
+      "index": 4,
+      "action": 1,
+      "frame": [165, 30],
+      "text": 4,
+      "timerValue": 0,
+      "nextStep": [5],
+      "passiveMaster": null,
+      "firstParallel": null,
+      "lastParallel": null,
+      "sequenceParallel": [],
+      "constraints": [{ "relation": [3, 1] }],
+      "smartOutput": {
+        "toolId": 25,
+        "tool": "medium-sized saucepan",
+        "action": "Add",
+        "temperature": null,
+        "duration": 30,
+        "ingredients": [{ "id": 877, "amount": 0.0 }],
+        "cutSize": null
+      }
+    },
+    {
+      "index": 5,
+      "action": 33,
+      "frame": [195, 10],
+      "text": 5,
+      "timerValue": 0,
+      "nextStep": [6],
+      "passiveMaster": null,
+      "firstParallel": null,
+      "lastParallel": null,
+      "sequenceParallel": [],
+      "constraints": [{ "relation": [4] }],
+      "smartOutput": {
+        "toolId": 40,
+        "tool": "hotplate",
+        "action": "Switch",
+        "temperature": null,
+        "duration": 10,
+        "ingredients": [],
+        "cutSize": null
+      }
+    },
+    {
+      "index": 6,
+      "action": 109,
+      "frame": [205, 60],
+      "text": 6,
+      "timerValue": 0,
+      "nextStep": [7],
+      "passiveMaster": null,
+      "firstParallel": null,
+      "lastParallel": null,
+      "sequenceParallel": [],
+      "constraints": [{ "relation": [5] }],
+      "smartOutput": {
+        "toolId": 58,
+        "tool": "cooking spoon",
+        "action": "Mix",
+        "temperature": null,
+        "duration": 60,
+        "ingredients": [],
+        "cutSize": null
+      }
+    },
+    {
+      "index": 7,
+      "action": 1,
+      "frame": [265, 30],
+      "text": 7,
+      "timerValue": 0,
+      "nextStep": [8],
+      "passiveMaster": null,
+      "firstParallel": null,
+      "lastParallel": null,
+      "sequenceParallel": [],
+      "constraints": [{ "relation": [6, 0] }],
+      "smartOutput": {
+        "toolId": 25,
+        "tool": "medium-sized saucepan",
+        "action": "Add",
+        "temperature": null,
+        "duration": 30,
+        "ingredients": [{ "id": 878, "amount": 0.0 }],
+        "cutSize": null
+      }
+    },
+    {
+      "index": 8,
+      "action": 109,
+      "frame": [295, 15],
+      "text": 8,
+      "timerValue": 0,
+      "nextStep": [9],
+      "passiveMaster": null,
+      "firstParallel": null,
+      "lastParallel": null,
+      "sequenceParallel": [],
+      "constraints": [{ "relation": [7] }],
+      "smartOutput": {
+        "toolId": 58,
+        "tool": "cooking spoon",
+        "action": "Mix",
+        "temperature": null,
+        "duration": 15,
+        "ingredients": [],
+        "cutSize": null
+      }
+    },
+    {
+      "index": 9,
+      "action": 34,
+      "frame": [310, 10],
+      "text": 9,
+      "timerValue": 0,
+      "nextStep": [10],
+      "passiveMaster": null,
+      "firstParallel": null,
+      "lastParallel": null,
+      "sequenceParallel": [],
+      "constraints": [{ "relation": [8] }],
+      "smartOutput": {
+        "toolId": 40,
+        "tool": "hotplate",
+        "action": "Switch",
+        "temperature": null,
+        "duration": 10,
+        "ingredients": [],
+        "cutSize": null
+      }
+    },
+    {
+      "index": 10,
+      "action": 40,
+      "frame": [320, 600],
+      "text": 10,
+      "timerValue": 600,
+      "nextStep": [12],
+      "passiveMaster": null,
+      "firstParallel": 11,
+      "lastParallel": 11,
+      "sequenceParallel": [11],
+      "constraints": [{ "relation": [9] }],
+      "smartOutput": {
+        "toolId": 25,
+        "tool": "medium-sized saucepan",
+        "action": "Cook",
+        "temperature": null,
+        "duration": 600,
+        "ingredients": [],
+        "cutSize": null
+      }
+    },
+    {
+      "index": 11,
+      "action": 118,
+      "frame": [320, 400],
+      "text": 11,
+      "timerValue": 0,
+      "nextStep": [],
+      "passiveMaster": 10,
+      "firstParallel": null,
+      "lastParallel": null,
+      "sequenceParallel": [],
+      "constraints": [],
+      "smartOutput": {
+        "toolId": 25,
+        "tool": "medium-sized saucepan",
+        "action": "Stir",
+        "temperature": null,
+        "duration": 400,
+        "ingredients": [],
+        "cutSize": null
+      }
+    },
+    {
+      "index": 12,
+      "action": 68,
+      "frame": [920, 60],
+      "text": 12,
+      "timerValue": 0,
+      "nextStep": [13],
+      "passiveMaster": null,
+      "firstParallel": null,
+      "lastParallel": null,
+      "sequenceParallel": [],
+      "constraints": [{ "relation": [10, 11] }],
+      "smartOutput": {
+        "toolId": 94,
+        "tool": "medium-sized bowl",
+        "action": "Transfer",
+        "temperature": null,
+        "duration": 60,
+        "ingredients": [],
+        "cutSize": null
+      }
+    },
+    {
+      "index": 13,
+      "action": 41,
+      "frame": [980, 2400],
+      "text": 13,
+      "timerValue": 2400,
+      "nextStep": [15],
+      "passiveMaster": null,
+      "firstParallel": 14,
+      "lastParallel": 14,
+      "sequenceParallel": [14],
+      "constraints": [{ "relation": [12] }],
+      "smartOutput": {
+        "toolId": 2,
+        "tool": "fridge",
+        "action": "Cool",
+        "temperature": null,
+        "duration": 2400,
+        "ingredients": [],
+        "cutSize": null
+      }
+    },
+    {
+      "index": 14,
+      "action": 1,
+      "frame": [980, 15],
+      "text": 14,
+      "timerValue": 0,
+      "nextStep": [],
+      "passiveMaster": 13,
+      "firstParallel": null,
+      "lastParallel": null,
+      "sequenceParallel": [],
+      "constraints": [],
+      "smartOutput": {
+        "toolId": 95,
+        "tool": "small bowl",
+        "action": "Add",
+        "temperature": null,
+        "duration": 15,
+        "ingredients": [{ "id": 879, "amount": 200.0 }],
+        "cutSize": null
+      }
+    },
+    {
+      "index": 15,
+      "action": 63,
+      "frame": [3380, 500],
+      "text": 15,
+      "timerValue": 0,
+      "nextStep": [16],
+      "passiveMaster": null,
+      "firstParallel": null,
+      "lastParallel": null,
+      "sequenceParallel": [],
+      "constraints": [{ "relation": [13] }],
+      "smartOutput": {
+        "toolId": 94,
+        "tool": "medium-sized bowl",
+        "action": "Form",
+        "temperature": null,
+        "duration": 500,
+        "ingredients": [],
+        "cutSize": "balls;;;"
+      }
+    },
+    {
+      "index": 16,
+      "action": 3,
+      "frame": [3880, 300],
+      "text": 16,
+      "timerValue": 0,
+      "nextStep": [17],
+      "passiveMaster": null,
+      "firstParallel": null,
+      "lastParallel": null,
+      "sequenceParallel": [],
+      "constraints": [{ "relation": [15, 14] }],
+      "smartOutput": {
+        "toolId": null,
+        "tool": null,
+        "action": "Coat",
+        "temperature": null,
+        "duration": 300,
+        "ingredients": [{ "id": 879, "amount": 0.0 }],
+        "cutSize": null
+      }
+    },
+    {
+      "index": 17,
+      "action": 0,
+      "frame": [4180, 0],
+      "text": 17,
+      "timerValue": 0,
+      "nextStep": [],
+      "passiveMaster": null,
+      "firstParallel": null,
+      "lastParallel": null,
+      "sequenceParallel": [],
+      "constraints": [{ "relation": [16] }],
+      "smartOutput": null
+    }
+  ],
+  "groupsArr": [
+    {
+      "id": 30,
+      "title": "Brigadeiro",
+      "imgUrl":
+        "http://api.digimeals.com/data/images/Recipe/PHO_brigadeiro-wm.jpg",
+      "defaultPortions": 5,
+      "portionType": 3,
+      "portionPartAmount": null,
+      "portionPieceName": null,
+      "portionPieceMax": null,
+      "portionPieceMin": null,
+      "portionSideName": null
+    }
+  ],
+  "fullTime": 4180
+}
