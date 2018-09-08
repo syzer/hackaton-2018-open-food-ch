@@ -5,9 +5,14 @@
 #
 
 
-#add bought item to inventory
+
+
+
+
+
+#add bought items to inventory
 # 
-# @param: inventory:   dataframe INGREDIENTS    :(data.frame)
+# @param: inventory:   dataframe INVENTORY    :(data.frame)
 # @param: groceries:   dateaframe ITEMS         :(data.frame)
 
 update_inventory_buy <- function(inventory, groceries){
@@ -42,9 +47,36 @@ update_inventory_cook <- function(inventory, cooking_ingredients){
   ##todo unit convert line
   #cooking_ingredients = unit_convert_line()
   #
-  for (ingredient in cooking_ingredients){
-    ## what if there is an item with multiple occurrences
-    inventory[inventory$Name==ingredient$Name, "Amount"] = max(inventory[inventory$Name==ingredient$Name, "Amount"] - ingredient$Amount,0) 
+  for (ix in 1:nrow(cooking_ingredients)){
+    ingredient = cooking_ingredients[ix,]
+    inventory_entries = nrow(inventory[inventory$id==cooking_ingredients[ix, "id"],])
+    if (inventory_entries==1){
+      inventory_ix = which(inventory$id==ingredient$id)
+      inventory[inventory_ix, "Amount"] = max(inventory[inventory_ix, "Amount"] - ingredient$Amount,0)
+      if (inventory[inventory_ix, "Amount"]==0){
+        inventory = inventory[-inventory_ix,]
+      }
+    }
+    else if (inventory_entries>1){
+      ingredient_inv_subset = inventory[inventory$id==ingredient$id,]
+      ingredient_inv_subset =ingredient_inv_subset[order(ingredient_inv_subset$DateBought),]
+      
+      needed_amount = ingredient$Amount
+      
+      for (jx in 1:nrow(ingredient_inv_subset)){
+        curr_ingredient = ingredient_inv_subset[jx,]
+        inventory_ix = which(inventory$id == curr_ingredient$id & inventory$DateBought == curr_ingredient$DateBought)
+        needed_amount = curr_ingredient$Amount - needed_amount
+        
+        if (needed_amount<0){
+          inventory = inventory[-inventory_ix,]
+          needed_amount = abs(needed_amount)
+        } else {
+          inventory[inventory_ix, "Amount"] = needed_amount
+          break
+        }
+      }
+    }
   }
   inventory
 }
