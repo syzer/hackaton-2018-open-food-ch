@@ -49,11 +49,17 @@ const search = input => {
     .reduce((acc, cur) => [...acc, ...cur], [])
 
   const matchedRecipes = matches.map(({ ref, ...rest }) => {
-    const matches = getIngredientById(ref).map(({ name, recId }) => ({
-      name,
-      recId, // maybe we can reuse this later to lookup the recipe
-    }))
-    return matches.length > 0 ? matches[0].name : ''
+    const matches = getIngredientById(ref).map(({ name, recId }) => {
+      return {
+        name,
+        recId, // maybe we can reuse this later to lookup the recipe
+      }
+    })
+    return matches.reduce((acc, cur, i, arr) => ({
+      recipes: [...acc.recipes, cur.recId],
+      name: arr[0].name,
+      ref: parseInt(ref, 10),
+    }), { recipes: [], name: [], ref })
   })
 
   // console.log(matchedRecipes)
@@ -62,7 +68,12 @@ const search = input => {
   return matchedRecipes
 }
 
+const lookupRecipeFromIngredient = id => {
+  return id
+}
+
 module.exports = {
   search,
   lookupIngredient: getIngredientById,
+  lookupRecipeFromIngredient,
 }
