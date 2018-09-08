@@ -4,8 +4,8 @@ import React from 'react';
 export default class App extends React.Component {
   constructor(props) {
     super(props);
-    this.backend_url = 'https://265a0fc6.ngrok.io';
-    this.subsequent_url = 'http://www.google.ch';
+    this.backend_url = `https://a6e365b1.eu.ngrok.io`
+    // this.subsequent_url = 'http://www.google.ch';
     this.state = {
       screenshot: null,
       sending: 0,
@@ -39,7 +39,7 @@ export default class App extends React.Component {
         <div>
           <div className='screenshots'>
             <div className='controls'>
-              <form action="https://265a0fc6.ngrok.io/" method="post" encType="multipart/form-data" id="take-picture-form">
+              <form action="https://a6e365b1.eu.ngrok.io" method="post" encType="multipart/form-data" id="take-picture-form">
                 <div className="file-field input-field">
                   <div className="btn">
                     <span><i className="material-icons right">add</i> Take a picture </span>
