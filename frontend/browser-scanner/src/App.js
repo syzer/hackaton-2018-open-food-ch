@@ -1,5 +1,5 @@
 import React from 'react';
-import Webcam from "react-webcam";
+// import Webcam from "react-webcam";
 
 export default class App extends React.Component {
   constructor(props) {
@@ -35,21 +35,34 @@ export default class App extends React.Component {
     return (
       <div>
         <h1>Capture Receipt</h1>
-        <Webcam audio={false} ref={node => this.webcam = node}/>
+
         <div>
           <div className='screenshots'>
             <div className='controls'>
-              <button onClick={this.handleClick}>capture</button>
+              <form action="https://265a0fc6.ngrok.io/" method="post" encType="multipart/form-data" id="take-picture-form">
+                <div className="file-field input-field">
+                  <div className="btn">
+                    <span><i className="material-icons right">add</i> Take a picture </span>
+                    <input type="file" name="file" multiple accept="image/*"/>
+                  </div>
+                  <div className="file-path-wrapper">
+                    <input className="file-path validate" type="text" placeholder="Upload one or more files"/>
+                  </div>
+                </div>
+
+                <br/>
+
+                <div className="input-field">
+                  <button className="btn waves-effect waves-light" type="submit" name="action">
+                    Submit
+                    <i className="material-icons right">cloud</i>
+                  </button>
+                </div>
+              </form>
             </div>
           </div>
         </div>
-        <h2>Receipt</h2>
-        {this.state.screenshot ?
-          <img src={this.state.screenshot} style={{ width: 200*10, height: 160*10 }} alt="screenshot"/> : <span></span>}
-        <br/>
-        {this.state.sending ? <span>Sending</span> : <span>Idle</span>}
-        {/*{ (this.state.sending === 2)? window.location.href = this.subsequent_url : null }*/}
       </div>
-    );
+    )
   }
 }
