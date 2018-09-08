@@ -68,8 +68,8 @@ id,name,unit,faktor,unit_new
 576,grated cheddar,tablespoons of,15,milliliters
 584,grated parmesan,grams,1,gram
 591,butter,grams,1,gram
-591,butter,tablespoon of,15,milliliters
-593,ghee,tablespoon of,15,milliliters
+591,butter,tablespoon of,13,gram
+593,ghee,tablespoon of,14,gram
 600,coconut oil,tablespoon of,15,milliliters
 608,olive oil,tablespoon of,15,milliliters
 608,olive oil,milliliters,5,milliliters
@@ -91,15 +91,15 @@ id,name,unit,faktor,unit_new
 655,fresh mint,grams,1,gram
 657,fresh flat-leaf parsley,grams,1,gram
 657,fresh flat-leaf parsley,leaves of,10,gram
-657,fresh flat-leaf parsley,bunch of,50,gramm
+657,fresh flat-leaf parsley,bunch of,50,gram
 659,fresh sage,leaves of,10,gram
-670,fresh ginger,centimeter,5,gramm
-670,fresh ginger,centimeters,5,gramm
+670,fresh ginger,centimeter,5,gram
+670,fresh ginger,centimeters,5,gram
 670,fresh ginger,grams,1,gram
 670,fresh ginger,small,20,gram
 680,cumin seeds,teaspoon of,5,gram
 682,chili pepper flakes,teaspoon of,5,gram
-706,dried basil,tablespoon of,15,milliliters
+706,dried basil,tablespoon of,15,gram
 706,dried basil,teaspoon of,5,gram
 719,dried bay leaf,piece,3,gram
 722,dried oregano,tablespoon of,15,milliliters
