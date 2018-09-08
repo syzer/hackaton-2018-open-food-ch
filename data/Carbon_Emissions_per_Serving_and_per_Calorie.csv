@@ -1,0 +1,97 @@
+Food,Category,Price (1997 $),Price Unit,Serving Size,SS Unit,Price per Serving,Calories per Serving,Grams CO2e per Serving,Grams CO2e per kcal
+BANANAS,Fruit,0.88,$/pound,140,grams,0.4890,112,738.4,3.7
+ALMONDS,Nut/Seed/Legume,1.55,$/pound,30,grams,0.1025,172,166.1,1.0
+APPLES,Fruit,22.90,Cents/Pound,140,grams,0.0707,80,106.7,1.3
+APRICOTS,Fruit,332.00,$/TON,140,grams,0.0512,67,77.4,1.2
+ARTICHOKES (California),Vegetable,78.20,$/Cwt.,85,g,0.1466,40,208.1,5.2
+ASPARAGUS,Vegetable,111.00,$/Cwt.,85,g,0.2081,17,295.4,17.4
+AVOCADOS,Vegetable,1360.00,$/TON,30,grams,0.0450,48,67.9,1.4
+BARLEY,Grain,2.40,$/bushel,45,g,0.0050,159,31.3,0.2
+BEEF,Meat,63.28,$/Cwt.,4,ounce,0.2254,372,978.4,1.8
+BELL PEPPERS,Vegetable,30.00,$/Cwt.,85,g,0.0562,17,79.8,4.7
+BLACK AND WHITE PEPPER,Other,206.90,Cents/pound,0.7,g,0.0026,2,2.5,1.2
+BLACKSTRAP MOLASSES (New Orleans),Other,58.16,$/short ton,1,tbsp,0.0011,58,2.0,0.0
+BLUEBERRIES,Fruit,0.83,$/pound,140,grams,0.2572,80,388.3,4.9
+BROCCOLI,Vegetable,29.10,$/Cwt.,85,g,0.0545,29,77.5,2.7
+BROILER CHICKEN,Meat,0.37,$/pound,114,g,0.1175,264,285.4,0.9
+BRUSSEL SPROUTS (California),Vegetable,42.50,$/Cwt.,85,g,0.0797,37,113.1,3.1
+BUTTER,Oil,107.10,Cents/Pound,1,tbsp,0.0254,100,79.5,0.8
+CABBAGE,Vegetable,10.40,$/Cwt.,85,g,0.0195,21,27.7,1.3
+CANTALOUPE,Fruit,17.70,$/Cwt.,140,g,0.0546,48,77.6,1.6
+CARROTS,Vegetable,13.10,$/Cwt.,85,g,0.0246,35,34.9,1.0
+CAULIFLOWER,Vegetable,31.20,$/Cwt.,85,g,0.0585,21,83.0,4.0
+CELERY,Vegetable,15.10,$/Cwt.,85,g,0.0283,14,40.2,2.9
+CHEESE,Dairy,132.40,Cents/Pound,1,ounce,0.0662,104,250.2,2.4
+CHOCOLATE LIQUOR (Brazil),Other,2305.00,$/metric ton,15,g,0.0346,95,30.6,0.3
+COCOA BEANS (Brazil),Nut/Seed/Legume,1641.00,$/metric ton,5,g,0.0082,32,7.3,1.5
+COCOA BUTTER,Other,4021.00,$/metric ton,1,tbsp,0.0534,119,47.3,0.4
+COCONUT OIL,Oil,38.59,Cents/Pound,1,tbsp,0.0093,116,25.0,0.2
+CORN,Vegetable,2.60,$/bushel,1,ear/half cup kernels,0.0231,77,145.8,1.9
+CORN OIL,Oil,25.67,Cents/Pound,1,tbsp,0.0062,119,12.2,0.1
+CRANBERRIES,Fruit,65.90,$/BARREL,55,grams,0.0799,26,120.7,4.6
+CUCUMBERS,Vegetable,16.90,$/Cwt.,85,g,0.0317,13,45.0,3.5
+DRY BEANS,Nut/Seed/Legume,17.70,$/Cwt.,35,g,0.0137,115,86.2,0.7
+EGGPLANT,Vegetable,23.80,$/Cwt.,85,g,0.0446,21,63.3,3.0
+EGGS,Dairy,58.70,Cents/Dozen,1,egg,0.0489,71,118.9,1.7
+FIGS,Fruit,250.00,$/TON,140,grams,0.0386,104,58.3,0.6
+FISH,Meat,0.71,$/pound,110,grams,0.3259,106,413.8,2.1
+FLAXSEED,Nut/Seed/Legume,5.75,$/bushel,30,grams,0.0063,161,17.8,0.1
+GARLIC (California),Vegetable,47.10,$/Cwt.,30,g,0.0312,43,44.2,1.0
+GRAPEFRUIT,Fruit,3.83,$/BOX,140,grams,0.0176,45,26.6,0.6
+HAWAIIAN COFFEE,Other,3.25,$/pound,0.016666666666667,th pound (http://www.ers.usda.gov/data/foodconsumption/FoodAvailDoc.htm),0.0542,2,48.5,24.2
+HAZELNUTS,Nut/Seed/Legume,898.00,$/TON,30,grams,0.0594,189,96.2,0.3
+HONEY,Other,75.20,Cents/Pound,21,grams,0.0348,64,46.3,0.7
+HONEYDEW,Fruit,18.90,$/Cwt.,140,g,0.0583,50,82.9,1.7
+HOPS,Other,1.58,$/pound,0.03175,ounce,0.0031,120,7.7,0.1
+KIWIS,Fruit,518.00,$/TON,140,grams,0.0800,85,120.7,1.4
+LAMB,Meat,90.30,$/Cwt.,114,g,0.3243,319,1407.4,3.1
+LARD,Oil,23.39,Cents/Pound,1,tbsp,0.0056,115,8.0,0.1
+LETTUCE,Vegetable,17.30,$/Cwt.,85,g,0.0324,13,46.0,3.5
+LIMA BEANS (Georgia),Nut/Seed/Legume,33.00,$/Cwt.,35,g,0.0255,118,160.7,1.4
+MACADAMIA NUTS,Nut/Seed/Legume,0.75,$/pound,30,grams,0.1367,215,221.4,0.4
+MILK elig. For fluid market,Dairy,12.38,$/Cwt.,8,fl. Oz.,0.0664,156,247.6,1.6
+NECTARINES,Fruit,375.00,$/TON,140,grams,0.0579,62,87.4,1.4
+OATS,Grain,1.60,$/bushel,45,grams,0.0050,156,31.3,0.2
+OLIVE OIL,Oil,2711.00,$/metric ton,1,tbsp,0.0367,119,98.8,0.8
+OLIVES,Other,642.00,$/TON,15,grams,0.0106,22,16.0,0.7
+ONIONS,Vegetable,12.60,$/Cwt.,85,g,0.0236,34,33.5,1.0
+ORANGES,Fruit,6.41,$/BOX,140,grams,0.0264,88,39.8,0.5
+PALM OIL,Oil,27.49,Cents/Pound,1,tbsp,0.0065,119,17.6,0.1
+PAPAYAS,Fruit,0.49,$/pound,140,grams,0.1510,55,228.0,4.1
+PEACHES,Vegetable,24.60,Cents/Pound,140,grams,0.0759,57,114.7,2.0
+PEANUTS,Nut/Seed/Legume,0.26,$/pound,30,grams,0.0298,170,72.9,0.2
+PEARS,Fruit,276.00,$/TON,140,grams,0.0426,81,64.3,0.8
+PECANS,Nut/Seed/Legume,0.77,$/pound,30,grams,0.1020,207,165.3,0.4
+PEPPERMINT,Other,13.20,$/pound,4,g,0.1164,3,285.3,95.1
+PIG,Meat,52.90,$/Cwt.,114,g,0.1900,297,824.5,1.9
+PINEAPPLES,Fruit,283.00,$/TON,140,grams,0.0437,70,66.0,0.9
+PISTACHIOS,Nut/Seed/Legume,1.13,$/pound,30,grams,0.1495,167,242.2,0.7
+PLUMS,Fruit,312.00,$/TON,140,grams,0.0482,64,72.7,1.1
+PORK,Meat,84.60,Cents/Pound,114,g,0.2088,297,906.3,3.1
+POTATOES,Vegetable,5.68,$/Cwt.,110,grams,0.0138,87,19.6,0.2
+RAISIN GRAPES,Fruit,241.00,$/TON,40,grams,0.0106,120,16.0,0.1
+RASPBERRIES,Fruit,0.49,$/pound,140,grams,0.1510,73,228.0,3.1
+RAW SUGAR,Other,21.96,Cents/Pound,4,grams,0.0015,15,2.9,0.2
+RETAIL COFFEE,Other,4.10,$/pound,0.016666666666667,portion of pound (http://www.ers.usda.gov/data/foodconsumption/FoodAvailDoc.htm),0.0683,2,61.2,30.6
+SNAP PEAS,Vegetable,41.30,$/Cwt.,85,g,0.0774,26,109.9,4.2
+SOYBEAN OIL,Oil,25.84,Cents/Pound,14,grams,0.0064,120,15.4,0.1
+SOYBEANS,Nut/Seed/Legume,6.50,$/bushel,35,grams,0.0084,51,23.4,0.5
+SPEARMINT,Other,12.00,$/pound,4,g,0.1058,3,259.3,86.4
+SPINACH,Vegetable,30.80,$/Cwt.,85,g,0.0577,20,82.0,4.1
+STRAWBERRIES,Fruit,65.70,$/Cwt.,140,g,0.2028,45,306.3,6.8
+SUNFLOWER OIL,Oil,11.30,$/Cwt.,1,tbsp,0.0034,124,9.1,0.1
+SUNFLOWER OIL,Oil,497.00,$/metric ton,1,tbsp,0.0054,119,14.5,0.1
+SWEET CHERRIES,Fruit,1250.00,$/TON,140,grams,0.1929,88,291.4,3.3
+SWEET CORN,Vegetable,17.60,$/Cwt.,85,g,0.0330,75,46.8,0.6
+SWEET POTATOES,Vegetable,15.80,$/Cwt.,110,grams,0.0383,94,54.4,0.6
+TABLE GRAPES,Fruit,447.00,$/TON,140,grams,0.0690,97,104.2,1.1
+TOBACCO,Other,181.30,Cents/Pound,0.9,g,0.0036,1,8.1,8.1
+TOMATOES,Vegetable,33.00,$/Cwt.,85,g,0.0619,16,87.8,5.5
+TURKEY,Meat,39.90,Cents/Pound,4,ounce,0.1279,132,310.9,1.8
+WALNUTS,Nut/Seed/Legume,1310.00,$/TON,30,grams,0.0963,196,156.0,0.4
+WATERMELONS,Fruit,7.59,$/Cwt.,280,g,0.0469,84,66.5,0.8
+WHEAT,Grain,3.45,$/bushel,45,grams,0.0034,153,21.6,0.1
+WHEAT FLOUR,Grain,11.89,$/Cwt.,30,g,0.0063,109,21.0,0.2
+WHOLESALE COFFEE,Other,0.20,$/oz,0.016666666666667,th pound (http://www.ers.usda.gov/data/foodconsumption/FoodAvailDoc.htm),0.0533,2,47.7,23.9
+WINE GRAPES,Other,598.00,$/TON,0.666666666666667,pounds,0.1993,123,133.0,1.1
+RICE (Louisiana),Grain,18.55,$/Cwt.,45,grams,0.0147,162,92.9,0.6
