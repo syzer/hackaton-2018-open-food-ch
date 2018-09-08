@@ -40,8 +40,9 @@ get_viable_recipes <- function(recipe_list, ingredients_to_use, eaters){
     score = length(intersect(recipe_list[[ix]]$ingredientsArr$id, ingredients_to_use$id))
     score_vec[ix] = score
   }
-  put_back = recipe_list[order(score_vec,decreasing=T)][1:3]
-  lapply(put_back function(x) list(x$groupsArr$title, x$groupsArr$imgUrl, x$ingredientsArr))
+  #  put_back = recipe_list[order(score_vec,decreasing=T)][1:3]
+  put_back = recipe_list[order(score_vec,decreasing=T)][[1]]
+  list(put_back$groupsArr$title, put_back$groupsArr$imgUrl, put_back$ingredientsArr)
 }
 
 #some tests
