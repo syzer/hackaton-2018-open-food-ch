@@ -1,9 +1,9 @@
 const log = m => console.log(m)
 
 // https://food.schoolofdata.ch/food-allergens/
-const allergenes = require("./allergene.json")
+const allergenes = require('./allergene.json')
 // https://open-api.digimeals.com/recipes/?language=de_CH
-const rezepte = require("./rezepte.json")
+const rezepte = require('./rezepte.json')
 
 const Untergruppe = ({ Untergruppe }) => Untergruppe
 const id = ({ id }) => id
