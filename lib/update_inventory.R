@@ -35,8 +35,7 @@ update_inventory_buy <- function(inventory, groceries, unit_lookup){
   groceries = convert_unit(groceries, unit_lookup)  #
   
   for (item in 1:nrow(groceries)){
-  
-    if (groceries[item, "id"] %in% inventory$id  & inventory[inventory$id == groceries[item, "id"], "DateBought"] == groceries[item, "DateBought"]){
+    if (groceries[item, "id"] %in% inventory$id  && inventory[inventory$id == groceries[item, "id"], "DateBought"] == groceries[item, "DateBought"]){
       inventory[inventory$id == groceries[item, "id"] & inventory[inventory$id == groceries[item, "id"], "DateBought"] == groceries[item, "DateBought"], "Amount"] = inventory[inventory$id == groceries[item, "id"], "Amount"] + groceries[item, "Amount"]
     } else {
       inventory = rbind(inventory, groceries[item,])
