@@ -57,8 +57,8 @@ update_inventory_buy <- function(inventory, groceries, unit_lookup){
 
 update_inventory_cook <- function(inventory, cooking_ingredients, unit_lookup){
   ##todo unit convert line
-  cooking_ingredients = unit_convert(cooking_ingredients, unit_lookup)
-  inventory = unit_convert(inventory, unit_lookup)
+  cooking_ingredients = convert_unit(cooking_ingredients, unit_lookup)
+  inventory = convert_unit(inventory, unit_lookup)
   #
   for (ix in 1:nrow(cooking_ingredients)){
     ingredient = cooking_ingredients[ix,]
