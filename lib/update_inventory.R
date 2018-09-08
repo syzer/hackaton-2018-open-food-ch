@@ -1,14 +1,28 @@
 # Source File - table update functions
 #
+
+# unit conversion
+
+convert_unit <- function(inventory, unit_lookup){
+  inventory[inventory$Unit=="<NA>", "Unit"]="piece"
+  for (ix in 1:nrow(inventory)){
+    unit_line = unit_lookup[unit_lookup$id==inventory[ix, "id"] & unit_lookup$unit==inventory[ix, "Unit"],]
+    if (nrow(unit_line>1)){
+      unit_line = unit_line[1,]
+    }
+    inventory[ix, "Amount"] = inventory[ix, "Amount"] * unit_line$faktor
+    inventory[ix, "Unit"] = unit_line$unit_new
+  }
+  inventory
+}
+
+
+
+
+
 #Structure INVENTORY:    id | Name | Amount | Unit | DateBought
 #                       int | char | double | char | POSIXct
 #
-
-
-
-
-
-
 
 #add bought items to inventory
 # 
@@ -27,7 +41,6 @@ update_inventory_buy <- function(inventory, groceries){
       inventory[inventory$id == groceries[item, "id"], "Amount"] = inventory[inventory$id == groceries[item, "id"], "Amount"] + groceries[item, "Amount"]
     } else {
       inventory = rbind(inventory, groceries[item,])
-      print(nrow(inventory))
     }
   }
   inventory
@@ -107,3 +120,12 @@ update_inventory_cook <- function(inventory, cooking_ingredients){
 #   }
 #   inventory
 # }
+
+
+update_inventory_spoiled <- function(inventory, id, DateBought){
+  ix = which(inventory$id==id & inventory$DateBought == DateBought)
+  if(length(ix)>0){
+    inventory=inventory[-ix,]
+  }
+  inventory  
+}

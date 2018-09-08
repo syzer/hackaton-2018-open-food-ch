@@ -1,13 +1,13 @@
 id,name,unit,faktor,unit_new
 12,fresh spinach leaves,grams,1,gram
 12,fresh spinach leaves,kilogram,1000,gram
-14,fresh onion,NA,82,gram
+14,fresh onion,piece,82,gram
 14,fresh onion,small,82,gram
 14,fresh onion,large,90,gram
 14,fresh onions,grams,1,gram
-16,shallot,NA,82,gram
+16,shallot,piece,82,gram
 17,leek,stalk of,157,gram
-18,scallion,NA,82,gram
+18,scallion,piece,82,gram
 19,fresh garlic,clove of,3,gram
 19,fresh garlic,cloves of,3,gram
 20,garlic powder,teaspoon of,3,gram
@@ -15,18 +15,18 @@ id,name,unit,faktor,unit_new
 21,cauliflower,grams,1,gram
 22,broccoli,head of,347,gram
 33,capers,grams,1,gram
-35,avocados,NA,160,gram
+35,avocados,piece,160,gram
 37,cucumber,small,550,gram
-37,cucumber,NA,550,gram
-40,fresh red chili pepper,NA,10,gram
-41,fresh tomato,NA,110,gram
+37,cucumber,piece,550,gram
+40,fresh red chili pepper,piece,10,gram
+41,fresh tomato,piece,110,gram
 41,fresh tomato,small,110,gram
 41,fresh tomatoes,grams,1,gram
 43,canned tomatoes,grams,1,gram
 49,canned black beans,grams,1,gram
 61,canned chickpeas,grams,1,gram
 66,celery,stalk of,652,gram
-68,potato,NA,90,gram
+68,potato,piece,90,gram
 68,potatoes,small,90,gram
 68,potato,large,100,gram
 68,potatoes,grams,90,gram
@@ -36,20 +36,20 @@ id,name,unit,faktor,unit_new
 73,carrot,small,62,gram
 73,carrots,small,62,gram
 81,sweet potatoes,grams,1,gram
-81,sweet potato,NA,90,gram
+81,sweet potato,piece,90,gram
 83,fresh white champignons,grams,1,gram
 114,apples,grams,1,gram
 114,apple,small,110,gram
 134,strawberries,grams,1,gram
 138,blueberries,grams,1,gram
 150,almonds,grams,1,gram
-156,lime,NA,80,gram
-158,lemon,NA,80,gram
-160,orange,NA,150,gram
-175,pomegranate,NA,350,gram
-182,mango,NA,250,gram
-189,whole chicken,NA,320,gram
-190,chicken breast,NA,160,gram
+156,lime,piece,80,gram
+158,lemon,piece,80,gram
+160,orange,piece,150,gram
+175,pomegranate,piece,350,gram
+182,mango,piece,250,gram
+189,whole chicken,piece,320,gram
+190,chicken breast,piece,160,gram
 190,chicken breasts,grams,1,gram
 190,chicken breast,large,160,gram
 221,pork belly,kilogram,1000,gram
@@ -60,10 +60,10 @@ id,name,unit,faktor,unit_new
 272,minced lamb,grams,1,gram
 459,basmati rice,grams,1,gram
 485,quinoa,grams,1,gram
-523,whole cow's milk,milliliters,1,milliliters
-541,cr<e8>me fra<ee>che,milliliters,1,milliliters
+523,whole cow's milk,milliliters,5,milliliters
+541,cr<e8>me fra<ee>che,milliliters,5,milliliters
 542,yoghurt,grams,1,gram
-546,whipping cream,milliliters,1,milliliters
+546,whipping cream,milliliters,5,milliliters
 564,grated mountain cheese,grams,1,gram
 576,grated cheddar,tablespoons of,15,milliliters
 584,grated parmesan,grams,1,gram
@@ -72,7 +72,7 @@ id,name,unit,faktor,unit_new
 593,ghee,tablespoon of,15,milliliters
 600,coconut oil,tablespoon of,15,milliliters
 608,olive oil,tablespoon of,15,milliliters
-608,olive oil,milliliters,1,milliliters
+608,olive oil,milliliters,5,milliliters
 608,olive oil,teaspoon of,5,milliliters
 608,olive oil,tablespoons of,15,milliliters
 611,sesame oil,tablespoon of,15,milliliters
@@ -80,8 +80,8 @@ id,name,unit,faktor,unit_new
 613,soy oil,tablespoon of,15,milliliters
 623,sesame seeds,tablespoon of,15,milliliters
 625,pine nuts,grams,1,gram
-634,chicken egg,NA,55,gram
-634,chicken eggs,NA,55,gram
+634,chicken egg,piece,55,gram
+634,chicken eggs,piece,55,gram
 640,fresh basil,sprig of,10,gram
 649,fresh coriander,sprig of,10,gram
 649,fresh coriander,grams,1,gram
@@ -97,72 +97,72 @@ id,name,unit,faktor,unit_new
 670,fresh ginger,centimeters,5,gramm
 670,fresh ginger,grams,1,gram
 670,fresh ginger,small,20,gram
-680,cumin seeds,teaspoon of,5,milliliters
-682,chili pepper flakes,teaspoon of,5,milliliters
+680,cumin seeds,teaspoon of,5,gram
+682,chili pepper flakes,teaspoon of,5,gram
 706,dried basil,tablespoon of,15,milliliters
-706,dried basil,teaspoon of,5,milliliters
-719,dried bay leaf,NA,3,gram
+706,dried basil,teaspoon of,5,gram
+719,dried bay leaf,piece,3,gram
 722,dried oregano,tablespoon of,15,milliliters
-722,dried oregano,teaspoon of,5,milliliters
-724,dried rosemary,teaspoon of,5,milliliters
-726,dried thyme,teaspoon of,5,milliliters
-727,yellow curry powder,teaspoon of,5,milliliters
-728,garam masala,teaspoon of,5,milliliters
-731,ground ginger,teaspoon of,5,milliliters
-732,curcuma powder,teaspoon of,5,milliliters
-733,ground nutmeg,teaspoon of,5,milliliters
+722,dried oregano,teaspoon of,5,gram
+724,dried rosemary,teaspoon of,5,gram
+726,dried thyme,teaspoon of,5,gram
+727,yellow curry powder,teaspoon of,5,gram
+728,garam masala,teaspoon of,5,gram
+731,ground ginger,teaspoon of,5,gram
+732,curcuma powder,teaspoon of,5,gram
+733,ground nutmeg,teaspoon of,5,gram
 733,ground nutmeg,pinch of,1,gram
-735,ground cinnamon,teaspoon of,5,milliliters
-736,ground coriander,teaspoon of,5,milliliters
-739,cumin powder,teaspoon of,5,milliliters
+735,ground cinnamon,teaspoon of,5,gram
+736,ground coriander,teaspoon of,5,gram
+739,cumin powder,teaspoon of,5,gram
 740,ground black pepper,pinch of,1,gram
-740,ground black pepper,teaspoon of,5,milliliters
-741,ground cardamom,teaspoon of,5,milliliters
+740,ground black pepper,teaspoon of,5,gram
+741,ground cardamom,teaspoon of,5,gram
 754,red curry paste,tablespoon of,15,milliliters
 757,tomato paste,tablespoon of,15,milliliters
 761,mayonnaise,grams,1,gram
 765,dijon mustard,tablespoon of,15,milliliters
 768,white cooking wine,deciliter,10,milliliters
 771,beer,milimeters,1,milliliters
-774,soy sauce,milliliters,1,milliliters
+774,soy sauce,milliliters,5,milliliters
 775,fish sauce,teaspoon of,5,milliliters
 775,fish sauce,tablespoon of,15,milliliters
-776,balsamic vinegar,milliliters,1,milliliters
+776,balsamic vinegar,milliliters,5,milliliters
 776,balsamic vinegar,tablespoon of,15,milliliters
 777,apple vinegar,tablespoon of,15,milliliters
 778,vegetable stock,liter,1000,milliliters
-779,chicken stock,milliliters,1,milliliters
+779,chicken stock,milliliters,5,milliliters
 783,lemon juice,tablespoon of,15,milliliters
-783,lemon juice,milliliters,1,milliliters
-785,coconut cream,milliliters,1,milliliters
-789,white sugar,teaspoon of,5,milliliters
+783,lemon juice,milliliters,5,milliliters
+785,coconut cream,milliliters,5,milliliters
+789,white sugar,teaspoon of,5,gram
 789,white sugar,tablespoon of,15,milliliters
 789,white sugar,grams,1,gram
 790,honey,tablespoon of,15,milliliters
-792,pomegranate molasses,milliliters,1,milliliters
-794,salt,teaspoon of,5,milliliters
+792,pomegranate molasses,milliliters,5,milliliters
+794,salt,teaspoon of,5,gram
 794,salt,pinch of,1,gram
 794,salt,pinches of,1,gram
 799,pearl onions,grams,1,gram
 800,red onion,large,90,gram
 800,red onion,small,82,gram
-800,red onion,NA,82,gram
+800,red onion,piece,82,gram
 800,red onions,grams,1,gram
 802,feta,grams,1,gram
-803,green pepper,NA,155,gram
+803,green pepper,piece,155,gram
 803,green peppers,grams,1,gram
 803,green pepper,large,155,gram
-804,yellow pepper,NA,155,gram
+804,yellow pepper,piece,155,gram
 804,yellow peppers,grams,1,gram
-805,red pepper,NA,155,gram
+805,red pepper,piece,155,gram
 806,salted butter,tablespoon of,15,milliliters
 807,raisins,grams,1,gram
-807,raisins,teaspoon of,5,milliliters
+807,raisins,teaspoon of,5,gram
 807,raisins,tablespoon of,15,milliliters
 811,wheat flour,tablespoon of,15,milliliters
 811,wheat flour,teaspoons of,5,milliliters
 843,fresh lemongrass,stalk of,10,gram
-849,precooked beetroot,NA,135,gram
+849,precooked beetroot,piece,135,gram
 853,green olives,grams,1,gram
 855,breadcrumbs,grams,1,gram
 859,plain curd,grams,1,gram
@@ -170,9 +170,9 @@ id,name,unit,faktor,unit_new
 860,frozen peas,tablespoon of,15,milliliters
 864,sushi grade flounder filets,grams,1,gram
 865,walnut halves,grams,1,gram
-869,chili powder,teaspoon of,5,milliliters
+869,chili powder,teaspoon of,5,gram
 869,chili powder,pinch of,1,gram
-873,fresh green chili pepper,NA,100,gram
+873,fresh green chili pepper,piece,100,gram
 873,fresh green chili pepper,small,100,gram
 877,dark chocolate,grams,1,gram
 878,condensed milk,grams,1,gram
@@ -180,25 +180,25 @@ id,name,unit,faktor,unit_new
 880,fresh green beans,grams,1,gram
 881,ginger paste,teaspoon of,5,milliliters
 882,garlic paste,teaspoon of,5,milliliters
-883,paprika powder,teaspoon of,5,milliliters
+883,paprika powder,teaspoon of,5,gram
 889,tahini,grams,1,gram
 891,ice cubes,grams,1,gram
 900,white wine vinegar,teaspoon of,5,milliliters
 900,white wine vinegar,tablespoons of,15,milliliters
 900,white wine vinegar,tablespoon of,15,milliliters
-901,cheese slice,NA,25,gram
+901,cheese slice,piece,25,gram
 919,peas,grams,1,gram
 994,penne,grams,1,gram
 999,spaghetti,grams,1,gram
-1020,basil,gram,1,gram
+1020,basil,gram,3,gram
 1067,bacon,slices of,20,gram
-1088,milk,milliliters,1,milliliters
+1088,milk,milliliters,5,milliliters
 1104,onion,small,82,gram
 1104,onion,large,90,gram
-1104,onion,NA,82,gram
+1104,onion,piece,82,gram
 1136,cherry tomatoes,grams,1,gram
 1140,pork roast,kilogram,1000,gram
 1144,dried red peppers,grams,1,gram
 1145,tomato sauce,grams,1,gram
-1146,Kashmiri chili powder,teaspoon of,5,milliliters
+1146,Kashmiri chili powder,teaspoon of,5,gram
 1149,bulgur,grams,1,gram
