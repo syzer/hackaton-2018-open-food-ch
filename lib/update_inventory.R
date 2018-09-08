@@ -7,7 +7,7 @@ convert_unit <- function(inventory, unit_lookup){
 
     for (ix in 1:nrow(inventory)){
       unit_line = unit_lookup[unit_lookup$id==inventory[ix, "id"] & unit_lookup$unit==inventory[ix, "Unit"],]
-      if (nrow(unit_line>0)){
+      if (nrow(unit_line)>0){
         unit_line = unit_line[1,]
         inventory[ix, "Amount"] = inventory[ix, "Amount"] * unit_line$faktor
         inventory[ix, "Unit"] = unit_line$unit_new
@@ -31,13 +31,13 @@ convert_unit <- function(inventory, unit_lookup){
 
 update_inventory_buy <- function(inventory, groceries, unit_lookup){
  
-  inventory = unit(inventory, unit_lookup)  #
-  groceries = unit(convert_groceries, unit_lookup)  #
+  inventory = convert_unit(inventory, unit_lookup)  #
+  groceries = convert_unit(groceries, unit_lookup)  #
   
   for (item in 1:nrow(groceries)){
   
-    if (groceries[item, "id"] %in% inventory$id  && inventory[inventory$id == groceries[item, "id"], "DateBought"] == groceries[item, "DateBought"]){
-      inventory[inventory$id == groceries[item, "id"], "Amount"] = inventory[inventory$id == groceries[item, "id"], "Amount"] + groceries[item, "Amount"]
+    if (groceries[item, "id"] %in% inventory$id  & inventory[inventory$id == groceries[item, "id"], "DateBought"] == groceries[item, "DateBought"]){
+      inventory[inventory$id == groceries[item, "id"] & inventory[inventory$id == groceries[item, "id"], "DateBought"] == groceries[item, "DateBought"], "Amount"] = inventory[inventory$id == groceries[item, "id"], "Amount"] + groceries[item, "Amount"]
     } else {
       inventory = rbind(inventory, groceries[item,])
     }
@@ -57,8 +57,8 @@ update_inventory_buy <- function(inventory, groceries, unit_lookup){
 
 update_inventory_cook <- function(inventory, cooking_ingredients, unit_lookup){
   ##todo unit convert line
-  cooking_ingredients = unit_convert(cooking_ingredients, unit_lookup)
-  inventory = unit_convert(inventory, unit_lookup)
+  cooking_ingredients = convert_unit(cooking_ingredients, unit_lookup)
+  inventory = convert_unit(inventory, unit_lookup)
   #
   for (ix in 1:nrow(cooking_ingredients)){
     ingredient = cooking_ingredients[ix,]
