@@ -1,0 +1,25 @@
+{
+  "name": "hackaton-2018-open-food-ch",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/syzer/hackaton-2018-open-food-ch.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/syzer/hackaton-2018-open-food-ch/issues"
+  },
+  "homepage": "https://github.com/syzer/hackaton-2018-open-food-ch#readme",
+  "dependencies": {
+    "lunr": "^2.3.3"
+  }
+}
