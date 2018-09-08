@@ -31,8 +31,8 @@ convert_unit <- function(inventory, unit_lookup){
 
 update_inventory_buy <- function(inventory, groceries, unit_lookup){
  
-  inventory = unit(inventory, unit_lookup)  #
-  groceries = unit(convert_groceries, unit_lookup)  #
+  inventory = convert_unit(inventory, unit_lookup)  #
+  groceries = convert_unit(convert_groceries, unit_lookup)  #
   
   for (item in 1:nrow(groceries)){
   
