@@ -7,7 +7,7 @@ convert_unit <- function(inventory, unit_lookup){
 
     for (ix in 1:nrow(inventory)){
       unit_line = unit_lookup[unit_lookup$id==inventory[ix, "id"] & unit_lookup$unit==inventory[ix, "Unit"],]
-      if (nrow(unit_line>0)){
+      if (nrow(unit_line)>0){
         unit_line = unit_line[1,]
         inventory[ix, "Amount"] = inventory[ix, "Amount"] * unit_line$faktor
         inventory[ix, "Unit"] = unit_line$unit_new
