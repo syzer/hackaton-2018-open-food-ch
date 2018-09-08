@@ -4,14 +4,14 @@
 # unit conversion
 
 convert_unit <- function(inventory, unit_lookup){
-  inventory[inventory$Unit=="<NA>", "Unit"]="piece"
-  for (ix in 1:nrow(inventory)){
-    unit_line = unit_lookup[unit_lookup$id==inventory[ix, "id"] & unit_lookup$unit==inventory[ix, "Unit"],]
-    if (nrow(unit_line>1)){
-      unit_line = unit_line[1,]
-    }
-    inventory[ix, "Amount"] = inventory[ix, "Amount"] * unit_line$faktor
-    inventory[ix, "Unit"] = unit_line$unit_new
+
+    for (ix in 1:nrow(inventory)){
+      unit_line = unit_lookup[unit_lookup$id==inventory[ix, "id"] & unit_lookup$unit==inventory[ix, "Unit"],]
+      if (nrow(unit_line>0)){
+        unit_line = unit_line[1,]
+        inventory[ix, "Amount"] = inventory[ix, "Amount"] * unit_line$faktor
+        inventory[ix, "Unit"] = unit_line$unit_new
+      }
   }
   inventory
 }
@@ -29,11 +29,10 @@ convert_unit <- function(inventory, unit_lookup){
 # @param: inventory:   dataframe INVENTORY    :(data.frame)
 # @param: groceries:   dateaframe ITEMS         :(data.frame)
 
-update_inventory_buy <- function(inventory, groceries){
-  
-  ##Todo: Unit Converison here
-  #
-  groceries = unit(convert_groceries)  #
+update_inventory_buy <- function(inventory, groceries, unit_lookup){
+ 
+  inventory = unit(inventory, unit_lookup)  #
+  groceries = unit(convert_groceries, unit_lookup)  #
   
   for (item in 1:nrow(groceries)){
   
@@ -56,10 +55,10 @@ update_inventory_buy <- function(inventory, groceries){
 
 # subtracts the amounts used in the recipe from the inventory and returns the updated inventory
 
-update_inventory_cook <- function(inventory, cooking_ingredients){
+update_inventory_cook <- function(inventory, cooking_ingredients, unit_lookup){
   ##todo unit convert line
-  cooking_ingredients = unit_convert(cooking_ingredients)
-  inventory = unit_convert(inventory)
+  cooking_ingredients = unit_convert(cooking_ingredients, unit_lookup)
+  inventory = unit_convert(inventory, unit_lookup)
   #
   for (ix in 1:nrow(cooking_ingredients)){
     ingredient = cooking_ingredients[ix,]
