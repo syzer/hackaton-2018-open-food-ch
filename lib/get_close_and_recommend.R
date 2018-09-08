@@ -5,7 +5,7 @@ get_list_of_items2use <- function(inventory, expiry_table, date, cutoff=3){
   cutoff_items = c()
   counter=1
   out_list=list()
-  for (ix in 1:length(inventory)){
+  for (ix in 1:nrow(inventory)){
     item = inventory[ix,]
     # print(date)
     # print(item$DateBought)
