@@ -20,7 +20,7 @@ export default class App extends React.Component {
       // body: new FormData(document.querySelector('#take-picture-form'))
       body: new FormData(window.$('#take-picture-form')[0])
     }).then((resp) => {
-      console.warn(resp)
+      console.warn(resp.json())
     }).catch(error => {
       console.log("ERROR: " + error)
       this.setState({ sending: 2 })
