@@ -6,28 +6,34 @@ export default class App extends React.Component {
     super(props)
     this.backend_url = `https://f91e195e.eu.ngrok.io/`
     this.recommender = `https://355c84da.eu.ngrok.io/`
+    this.recepies = `https://355c84da.eu.ngrok.io/`
     this.state = {
       response: '',
       sending: 0,
-      tab: 0
+      tab: 0,
+      recepiesIds: []
     }
   }
 
   fetchProducts (products) {
-    fetch(this.recommender + 'ingredients', {
-      method: 'GET',
-      body: products.join(',')
-    })
+    return fetch(this.recommender + 'ingredients/' + products.join(','))
       .then(resp => resp.json())
       .catch(console.error)
   }
 
   fetchRecepies (products) {
-    fetch(this.recommender + 'recepies', {
-      method: 'GET',
-      body: products.join(',')
-    })
+    return fetch(this.recommender + 'recepies/' + products.join(','))
       .then(resp => resp.json())
+      .catch(console.error)
+  }
+
+  fetchPictures (productsIds) {
+    fetch(this.recommender + 'rezepte/' + productsIds.join(','))
+      .then(resp => resp.json())
+      .then(e => {
+        console.warn(e)
+        return e
+      })
       .catch(console.error)
   }
 
@@ -43,14 +49,19 @@ export default class App extends React.Component {
         this.setState({
           response: JSON.stringify(resp[0])
         })
-        return resp([0])
+        return resp[0]
       })
       .then(products => {
-        this.fetchRecepies(products)
-          .then(console.warn)
+        return this.fetchRecepies(products)
+          .then(recepiesIds => {
+            this.setState({
+              recepiesIds: JSON.stringify(recepiesIds)
+            })
+            console.warn('recepiesIds', recepiesIds)
+          })
 
-        return this.fetchProducts(products)
-          .then(console.warn)
+        // this.fetchProducts(products)
+        //   .then(console.warn)
       })
       .catch(error => {
         console.log("ERROR: " + error)
@@ -61,7 +72,7 @@ export default class App extends React.Component {
   render() {
     return (
       <div>
-        <h1>Capture Receipt:</h1>
+        <h1>Capture Receipt to see recommender recepies</h1>
 
         <div>
           <div className='screenshots'>
@@ -98,6 +109,11 @@ export default class App extends React.Component {
         <div>
           <pre>
             {this.state.response}
+          </pre>
+        </div>
+        <div>
+          <pre>
+            {this.state.recepiesIds}
           </pre>
         </div>
       </div>

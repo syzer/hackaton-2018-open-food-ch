@@ -2,6 +2,9 @@ const polka = require('polka')
 const { searchIngredient, getIngredientById } = require('./search.js')
 const fs = require('fs')
 const { concat, countBy, map, prop, pipe, flatten, toPairs, sortBy, last, reverse, take, head } = require('ramda')
+// const { json } = require('body-parser');
+const cors = require('cors')({ origin: true })
+const serve = require('serve-static')('data')
 
 const _ = pipe
 const { promisify } = require('util')
@@ -11,12 +14,13 @@ const db = []
 
 const mockupsRecepies = readFileAsync(__dirname + '/../data/mock_inventory.csv', 'utf-8')
   .then(e => e.split('\n').slice(1).map(e => e.split(',').shift()).map(Number))
-  .then(mockupIds => mockupIds.map(getIngredientById).map(e => e.map(({recId}) => recId)))
+  .then(mockupIds => mockupIds.map(getIngredientById).map(e => e.map(({ recId }) => recId)))
 
 // ['carrots', 'potatos'] => recepies
 mockupsRecepies
   .then(mockupsRecepies => {
     polka()
+      .use(cors, serve)
       .get('/ingredients/:searchterm', (req, res) => {
         const { searchterm } = req.params
         const decodedTerm = decodeURI(searchterm)
