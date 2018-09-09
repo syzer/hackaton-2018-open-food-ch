@@ -13,17 +13,17 @@ const mockupsRecepies = readFileAsync(__dirname + '/../data/mock_inventory.csv',
   .then(e => e.split('\n').slice(1).map(e => e.split(',').shift()).map(Number))
   .then(mockupIds => mockupIds.map(getIngredientById).map(e => e.map(({recId}) => recId)))
 
-function two(req, res, next) {
-  req.db = db
-  next()
-}
-
-
 // ['carrots', 'potatos'] => recepies
 mockupsRecepies
   .then(mockupsRecepies => {
     polka()
-      .use(one, two)
+      .get('/ingredient/:searchterm', (req, res) => {
+        const { searchterm } = req.params
+        const decodedTerm = decodeURI(searchterm)
+        const matches = searchIngredient(decodedTerm)
+        console.log(matches)
+        res.end(JSON.stringify(matches))
+      })
       .get('/recepies/:searchterm', (req, res) => {
         const { searchterm } = req.params
         const decodedTerm = decodeURIComponent(searchterm)
