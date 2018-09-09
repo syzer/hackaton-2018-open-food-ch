@@ -8,7 +8,7 @@ export default class App extends React.Component {
     this.recommender = `https://355c84da.eu.ngrok.io/`
     this.state = {
       response: '',
-      sending: 0,
+      sending: false,
       tab: 0,
       recepiesIds: [],
       cards: [],
@@ -33,12 +33,15 @@ export default class App extends React.Component {
 
   handleClick = (e) => {
     e.preventDefault()
+    this.setState({ sending: true })
+
     return fetch(this.backend_url, {
       method: 'POST',
       body: new FormData(document.querySelector('#take-picture-form'))
     })
       .then(resp => resp.json())
       .then(resp => {
+        this.setState({ sending: false })
         this.setState({
           response: JSON.stringify(resp[0])
         })
@@ -50,7 +53,7 @@ export default class App extends React.Component {
             this.setState({
               recepiesIds: JSON.stringify(recepiesIds)
             })
-            console.warn('recepiesIds', recepiesIds)
+            console.log('recepiesIds', recepiesIds)
             return recepiesIds
           })
           .then(recepiesIds => {
@@ -60,8 +63,13 @@ export default class App extends React.Component {
           })
           .then(allJSONS => {
             let cards = allJSONS
-              .map((({ groupsArr }) => groupsArr))
-              .map(e => e[0])
+              .map((({ ingredientsArr, groupsArr }) => ({
+                ...groupsArr[0],
+                ingredients: ingredientsArr
+                  .map(e => e.name)
+                  .map(e => e[0].toLocaleUpperCase() + e.substr(1))
+              })))
+            // .map(e => e[0])
 
             console.warn('here', cards)
             this.setState({
@@ -78,7 +86,7 @@ export default class App extends React.Component {
       })
   }
 
-  makeCard = ({ imgUrl, title }, key) =>
+  makeCard = ({ imgUrl, title, ingredients }, key) =>
     <div className="row" key={key}>
       <div className="col s12 m7">
         <div className="card">
@@ -87,7 +95,11 @@ export default class App extends React.Component {
             <span className="card-title">{title}</span>
           </div>
           <div className="card-content">
-            {/*<p>{ingredientsArr}</p>*/}
+            {ingredients.map((e, i) =>
+              <p key={i}>
+                <i className="fas fa-play"> {e} </i>
+              </p>
+            )}
           </div>
           <div className="card-action">
             <a href={imgUrl}>{title}</a>
@@ -96,48 +108,47 @@ export default class App extends React.Component {
       </div>
     </div>
 
-  render() {
-    return (
-      <div>
-        <h1>Capture Receipt to see recommender recepies</h1>
+  render = () =>
+    <div>
+      <h1>Capture Receipt to see recommender recepies</h1>
+      {this.state.sending ? <i className="large material-icons">access_time</i> : null}
 
-        <div>
-          <div className='screenshots'>
-            <div className='controls'>
-              <form
-                action="https://f91e195e.eu.ngrok.io/"
-                method="post"
-                encType="multipart/form-data"
-                id="take-picture-form">
-                <div className="file-field input-field">
-                  <div className="btn">
-                    <span><i className="material-icons right">add</i> Take a picture </span>
-                    <input type="file" name="file" multiple accept="image/*"/>
-                  </div>
-                  <div className="file-path-wrapper">
-                    <input className="file-path validate" type="text" placeholder="Upload one or more files"/>
-                  </div>
+      <div>
+        <div className='screenshots'>
+          <div className='controls'>
+            <form
+              action="https://f91e195e.eu.ngrok.io/"
+              method="post"
+              encType="multipart/form-data"
+              id="take-picture-form">
+              <div className="file-field input-field">
+                <div className="btn">
+                  <span><i className="material-icons right">add</i> Take a picture </span>
+                  <input type="file" name="file" multiple accept="image/*"/>
                 </div>
-                <br/>
-                <div className="input-field">
-                  <button
-                    className="btn waves-effect waves-light"
-                    type="submit"
-                    name="action"
-                    onClick={this.handleClick}>
-                    Submit
-                    <i className="material-icons right">cloud</i>
-                  </button>
+                <div className="file-path-wrapper">
+                  <input className="file-path validate" type="text" placeholder="Upload one or more files"/>
                 </div>
-              </form>
-            </div>
+              </div>
+              <br/>
+              <div className="input-field">
+                <button
+                  className="btn waves-effect waves-light"
+                  type="submit"
+                  name="action"
+                  disabled={this.state.sending}
+                  onClick={this.handleClick}>
+                  Submit
+                  <i className="material-icons right">cloud</i>
+                </button>
+              </div>
+            </form>
           </div>
         </div>
-        <pre>{this.state.response}</pre>
-        <div>
-          {this.state.cards.map(this.makeCard)}
-        </div>
       </div>
-    )
-  }
+      <pre>{this.state.response}</pre>
+      <div>
+        {this.state.cards.map(this.makeCard)}
+      </div>
+    </div>
 }
