@@ -13,33 +13,33 @@ export default class App extends React.Component {
     };
   }
 
-  handleClick = () => {
-    const screenshot = this.webcam.getScreenshot();
-    this.setState({ screenshot });
-    this.setState({ sending: 1 });
-
-    fetch(this.backend_url, {
+  handleClick = (e) => {
+    e.preventDefault()
+    return fetch(this.backend_url, {
       method: 'POST',
-      body: screenshot
-    }).then(
+      // body: new FormData(document.querySelector('#take-picture-form'))
+      body: new FormData(window.$('#take-picture-form')[0])
+    }).then((resp) => {
+      console.warn(resp)
+    }).catch(error => {
+      console.log("ERROR: " + error)
       this.setState({ sending: 2 })
-    ).catch(
-      error => {
-        console.log("ERROR: " + error)
-        this.setState({ sending: 2 })
-      }
-    )
+    })
   }
 
   render() {
     return (
       <div>
-        <h1>Capture Receipt</h1>
+        <h1>Capture Receipt:</h1>
 
         <div>
           <div className='screenshots'>
             <div className='controls'>
-              <form action="https://f91e195e.eu.ngrok.io/" method="post" encType="multipart/form-data" id="take-picture-form">
+              <form
+                action="https://f91e195e.eu.ngrok.io/"
+                method="post"
+                encType="multipart/form-data"
+                id="take-picture-form">
                 <div className="file-field input-field">
                   <div className="btn">
                     <span><i className="material-icons right">add</i> Take a picture </span>
@@ -53,7 +53,11 @@ export default class App extends React.Component {
                 <br/>
 
                 <div className="input-field">
-                  <button className="btn waves-effect waves-light" type="submit" name="action">
+                  <button
+                    className="btn waves-effect waves-light"
+                    type="submit"
+                    name="action"
+                    onClick={this.handleClick}>
                     Submit
                     <i className="material-icons right">cloud</i>
                   </button>
