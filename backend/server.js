@@ -7,26 +7,17 @@ const _ = pipe
 const { promisify } = require('util')
 const readFileAsync = promisify(fs.readFile)
 
+const db = []
+
 const mockupsRecepies = readFileAsync(__dirname + '/../data/mock_inventory.csv', 'utf-8')
   .then(e => e.split('\n').slice(1).map(e => e.split(',').shift()).map(Number))
   .then(mockupIds => mockupIds.map(getIngredientById).map(e => e.map(({recId}) => recId)))
 
-const db = []
-
-function one(req, res, next) {
-  req.hello = 'world'
-  next()
-}
-
 function two(req, res, next) {
-  req.foo = '...needs better demo 😔'
+  req.db = db
   next()
 }
 
-
-// TODO
-// - [ ] get for added items, so they can query
-// - [ ] make sure the recepies list is updated
 
 // ['carrots', 'potatos'] => recepies
 mockupsRecepies
@@ -37,8 +28,8 @@ mockupsRecepies
         const { searchterm } = req.params
         const decodedTerm = decodeURIComponent(searchterm)
 
-        const searchTerms = decodedTerm.replace(/"/g, '').split(',')
         // TODO amounts and names and prices
+        const searchTerms = decodedTerm.replace(/"/g, '').split(',')
 
         const ingredientFound = searchTerms
           .map(searchIngredient)
