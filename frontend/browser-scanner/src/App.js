@@ -6,43 +6,36 @@ export default class App extends React.Component {
     super(props)
     this.backend_url = `https://f91e195e.eu.ngrok.io/`
     this.recommender = `https://355c84da.eu.ngrok.io/`
-    this.recepies = `https://355c84da.eu.ngrok.io/`
     this.state = {
       response: '',
       sending: 0,
       tab: 0,
-      recepiesIds: []
+      recepiesIds: [],
+      cards: [],
     }
   }
 
-  fetchProducts (products) {
+  fetchProducts(products) {
     return fetch(this.recommender + 'ingredients/' + products.join(','))
       .then(resp => resp.json())
       .catch(console.error)
   }
 
-  fetchRecepies (products) {
+  fetchRecepies(products) {
     return fetch(this.recommender + 'recepies/' + products.join(','))
       .then(resp => resp.json())
       .catch(console.error)
   }
 
-  fetchPictures (productsIds) {
-    fetch(this.recommender + 'rezepte/' + productsIds.join(','))
+  fetchPicture = (recepieId) =>
+    fetch(this.recommender + 'rezepte/' + recepieId + '.json')
       .then(resp => resp.json())
-      .then(e => {
-        console.warn(e)
-        return e
-      })
-      .catch(console.error)
-  }
 
   handleClick = (e) => {
     e.preventDefault()
     return fetch(this.backend_url, {
       method: 'POST',
       body: new FormData(document.querySelector('#take-picture-form'))
-      // body: new FormData(window.$('#take-picture-form')[0])
     })
       .then(resp => resp.json())
       .then(resp => {
@@ -58,6 +51,22 @@ export default class App extends React.Component {
               recepiesIds: JSON.stringify(recepiesIds)
             })
             console.warn('recepiesIds', recepiesIds)
+            return recepiesIds
+          })
+          .then(recepiesIds => {
+            return Promise.all(
+              recepiesIds
+                .map(id => this.fetchPicture(id)))
+          })
+          .then(allJSONS => {
+            let cards = allJSONS
+              .map((({ groupsArr }) => groupsArr))
+              .map(e => e[0])
+
+            console.warn('here', cards)
+            this.setState({
+              cards,
+            })
           })
 
         // this.fetchProducts(products)
@@ -68,6 +77,24 @@ export default class App extends React.Component {
         this.setState({ sending: 2 })
       })
   }
+
+  makeCard = ({ imgUrl, title }, key) =>
+    <div className="row" key={key}>
+      <div className="col s12 m7">
+        <div className="card">
+          <div className="card-image">
+            <img src={imgUrl}/>
+            <span className="card-title">{title}</span>
+          </div>
+          <div className="card-content">
+            {/*<p>{ingredientsArr}</p>*/}
+          </div>
+          <div className="card-action">
+            <a href={imgUrl}>{title}</a>
+          </div>
+        </div>
+      </div>
+    </div>
 
   render() {
     return (
@@ -106,15 +133,9 @@ export default class App extends React.Component {
             </div>
           </div>
         </div>
+        <pre>{this.state.response}</pre>
         <div>
-          <pre>
-            {this.state.response}
-          </pre>
-        </div>
-        <div>
-          <pre>
-            {this.state.recepiesIds}
-          </pre>
+          {this.state.cards.map(this.makeCard)}
         </div>
       </div>
     )

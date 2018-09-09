@@ -4,7 +4,7 @@ const fs = require('fs')
 const { concat, countBy, map, prop, pipe, flatten, toPairs, sortBy, last, reverse, take, head } = require('ramda')
 // const { json } = require('body-parser');
 const cors = require('cors')({ origin: true })
-const serve = require('serve-static')('data')
+const serve = require('serve-static')('../data')
 
 const _ = pipe
 const { promisify } = require('util')
