@@ -17,10 +17,16 @@ const mockupsRecepies = readFileAsync(__dirname + '/../data/mock_inventory.csv',
 mockupsRecepies
   .then(mockupsRecepies => {
     polka()
-      .get('/ingredient/:searchterm', (req, res) => {
+      .get('/ingredients/:searchterm', (req, res) => {
         const { searchterm } = req.params
         const decodedTerm = decodeURI(searchterm)
-        const matches = searchIngredient(decodedTerm)
+
+        const searchTerms = decodedTerm.replace(/"/g, '').split(',')
+
+        const ingredientFound = searchTerms
+          .map(searchIngredient)
+
+        const matches = ingredientFound
         console.log(matches)
         res.end(JSON.stringify(matches))
       })
