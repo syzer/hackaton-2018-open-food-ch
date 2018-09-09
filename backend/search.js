@@ -73,7 +73,7 @@ const lookupRecipeFromIngredient = id => {
 }
 
 module.exports = {
-  searchIngredient,
+  searchIngredient: search,
   getIngredientById,
   lookupRecipeFromIngredient,
 }
