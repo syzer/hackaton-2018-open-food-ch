@@ -10,7 +10,7 @@ const testcases = [
 ]
 
 const lookupIngredient = input => {
-  const result = search.search(input)
+  const result = search.searchIngredient(input)
 
   console.log(`${input} :`, result)
 }
