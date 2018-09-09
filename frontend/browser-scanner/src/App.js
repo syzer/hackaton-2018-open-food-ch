@@ -3,28 +3,59 @@ import React from 'react';
 
 export default class App extends React.Component {
   constructor(props) {
-    super(props);
+    super(props)
     this.backend_url = `https://f91e195e.eu.ngrok.io/`
-    // this.subsequent_url = 'http://www.google.ch';
+    this.recommender = `https://355c84da.eu.ngrok.io/`
     this.state = {
-      screenshot: null,
+      response: '',
       sending: 0,
       tab: 0
-    };
+    }
+  }
+
+  fetchProducts (products) {
+    fetch(this.recommender + 'ingredients', {
+      method: 'GET',
+      body: products.join(',')
+    })
+      .then(resp => resp.json())
+      .catch(console.error)
+  }
+
+  fetchRecepies (products) {
+    fetch(this.recommender + 'recepies', {
+      method: 'GET',
+      body: products.join(',')
+    })
+      .then(resp => resp.json())
+      .catch(console.error)
   }
 
   handleClick = (e) => {
     e.preventDefault()
     return fetch(this.backend_url, {
       method: 'POST',
-      // body: new FormData(document.querySelector('#take-picture-form'))
-      body: new FormData(window.$('#take-picture-form')[0])
-    }).then((resp) => {
-      console.warn(resp.json())
-    }).catch(error => {
-      console.log("ERROR: " + error)
-      this.setState({ sending: 2 })
+      body: new FormData(document.querySelector('#take-picture-form'))
+      // body: new FormData(window.$('#take-picture-form')[0])
     })
+      .then(resp => resp.json())
+      .then(resp => {
+        this.setState({
+          response: JSON.stringify(resp[0])
+        })
+        return resp([0])
+      })
+      .then(products => {
+        this.fetchRecepies(products)
+          .then(console.warn)
+
+        return this.fetchProducts(products)
+          .then(console.warn)
+      })
+      .catch(error => {
+        console.log("ERROR: " + error)
+        this.setState({ sending: 2 })
+      })
   }
 
   render() {
@@ -49,9 +80,7 @@ export default class App extends React.Component {
                     <input className="file-path validate" type="text" placeholder="Upload one or more files"/>
                   </div>
                 </div>
-
                 <br/>
-
                 <div className="input-field">
                   <button
                     className="btn waves-effect waves-light"
@@ -65,6 +94,11 @@ export default class App extends React.Component {
               </form>
             </div>
           </div>
+        </div>
+        <div>
+          <pre>
+            {this.state.response}
+          </pre>
         </div>
       </div>
     )
