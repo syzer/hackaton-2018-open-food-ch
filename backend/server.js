@@ -24,14 +24,6 @@ const mockupIngredients = mockupIngretientsWithRecepies
 const mockupRecepiesIds = mockupIngretientsWithRecepies
   .then(mockupIngredients => mockupIngredients.map(e => e.map(({ recId }) => recId)))
 
-// TODO: remove `:` from search because it throws exception
-// searching for:  JST-NUMMER:~3
-//
-// ../hackaton-2018-open-food-ch/backend/node_modules/lunr/lunr.js:3310
-// throw new lunr.QueryParseError (errorMessage, lexeme.start, lexeme.end)
-// ^
-// Error
-
 mockupRecepiesIds
   .then(mockupRecepiesIds => {
     polka()
@@ -44,7 +36,7 @@ mockupRecepiesIds
         const { searchterm } = req.params
         const decodedTerm = decodeURI(searchterm)
 
-        const searchTerms = decodedTerm.replace(/"/g, '').split(',')
+        const searchTerms = decodedTerm.replace(/[":]/g, '').split(',')
 
         const ingredientFound = searchTerms
           .map(searchIngredient)
@@ -60,7 +52,7 @@ mockupRecepiesIds
         const decodedTerm = decodeURIComponent(searchterm)
 
         // TODO amounts and names and prices
-        const searchTerms = decodedTerm.replace(/"/g, '').split(',')
+        const searchTerms = decodedTerm.replace(/[":]/g, '').split(',')
 
         const ingredientFound = searchTerms
           .map(searchIngredient)
