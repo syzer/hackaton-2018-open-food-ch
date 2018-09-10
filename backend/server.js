@@ -28,7 +28,11 @@ const mockupsRecepies = readFileAsync(__dirname + '/../data/mock_inventory.csv',
 mockupsRecepies
   .then(mockupsRecepies => {
     polka()
-      .use(cors, serve)
+      .use(cors, serve) // serve our recepies with pictures
+      .get('/expired-items', (req, res) =>
+        // All stuff you have that is about to expire
+        res.end(JSON.stringify((db[0])))
+      )
       .get('/ingredients/:searchterm', (req, res) => {
         const { searchterm } = req.params
         const decodedTerm = decodeURI(searchterm)
@@ -42,6 +46,7 @@ mockupsRecepies
         console.log(matches)
         res.end(JSON.stringify(matches))
       })
+      // this gives us recommendations
       .get('/recepies/:searchterm', (req, res) => {
         const { searchterm } = req.params
         const decodedTerm = decodeURIComponent(searchterm)
@@ -68,7 +73,7 @@ mockupsRecepies
           map(_(head, Number)),
         )(recipesMatches)
 
-        db[0] = bestMatches
+        db[0] = bestMatches // warning: safe for only one user
 
         res.end(JSON.stringify(bestMatches))
       })
@@ -77,7 +82,7 @@ mockupsRecepies
       })
       .get('/recommendations', (req, res) => {
         res.end(JSON.stringify((db[0])))
-      })
+      }) // TODO not sure if we need that
       .listen(2001).then(_ => {
       console.log(`> Running on localhost:2001`)
     })
