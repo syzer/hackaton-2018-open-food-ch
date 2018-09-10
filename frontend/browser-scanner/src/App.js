@@ -7,7 +7,7 @@ export default class App extends React.Component {
     this.backend_url = `https://f91e195e.eu.ngrok.io/`
     this.recommender = `https://355c84da.eu.ngrok.io/`
     this.state = {
-      response: '',
+      ingredients: [],
       sending: false,
       tab: 0,
       recepiesIds: [],
@@ -15,6 +15,7 @@ export default class App extends React.Component {
     }
   }
 
+  // TODO
   fetchProducts(products) {
     return fetch(this.recommender + 'ingredients/' + products.join(','))
       .then(resp => resp.json())
@@ -43,7 +44,7 @@ export default class App extends React.Component {
       .then(resp => {
         this.setState({ sending: false })
         this.setState({
-          response: JSON.stringify(resp[0])
+          ingredients: resp[0]
         })
         return resp[0]
       })
@@ -82,7 +83,7 @@ export default class App extends React.Component {
       })
       .catch(error => {
         console.log("ERROR: " + error)
-        this.setState({ sending: 2 })
+        this.setState({ sending: false })
       })
   }
 
@@ -91,7 +92,7 @@ export default class App extends React.Component {
       <div className="col s12 m7">
         <div className="card">
           <div className="card-image">
-            <img src={imgUrl}/>
+            <img src={imgUrl} alt={title} />
             <span className="card-title">{title}</span>
           </div>
           <div className="card-content">
@@ -108,11 +109,23 @@ export default class App extends React.Component {
       </div>
     </div>
 
+  makeBillItemsList = (ingredients) =>
+    <ul className="collection">
+      {ingredients.map((e,i) =>
+        <li className="collection-item" /*avatar*/ key={i}>
+          {/*<img src="images/yuna.jpg" alt="" className="circle"/>*/}
+            <span className="title">{e}</span>
+            {/*{e}*/}
+            <a href="#!" className="secondary-content">
+              <i className="material-icons">grade</i>
+            </a>
+        </li>
+      )}
+    </ul>
+
   render = () =>
     <div>
       <h1>Capture Receipt to see recommender recepies</h1>
-      {this.state.sending ? <i className="large material-icons">access_time</i> : null}
-
       <div>
         <div className='screenshots'>
           <div className='controls'>
@@ -143,10 +156,11 @@ export default class App extends React.Component {
                 </button>
               </div>
             </form>
+            {this.state.sending ? <i className="large material-icons">access_time</i> : null}
           </div>
         </div>
       </div>
-      <pre>{this.state.response}</pre>
+      {this.makeBillItemsList(this.state.ingredients)}
       <div>
         {this.state.cards.map(this.makeCard)}
       </div>

@@ -16,6 +16,14 @@ const mockupsRecepies = readFileAsync(__dirname + '/../data/mock_inventory.csv',
   .then(e => e.split('\n').slice(1).map(e => e.split(',').shift()).map(Number))
   .then(mockupIds => mockupIds.map(getIngredientById).map(e => e.map(({ recId }) => recId)))
 
+// TODO: remove `:` from search because it throws exception
+// searching for:  JST-NUMMER:~3
+//
+// ../hackaton-2018-open-food-ch/backend/node_modules/lunr/lunr.js:3310
+// throw new lunr.QueryParseError (errorMessage, lexeme.start, lexeme.end)
+// ^
+// Error
+
 // ['carrots', 'potatos'] => recepies
 mockupsRecepies
   .then(mockupsRecepies => {
