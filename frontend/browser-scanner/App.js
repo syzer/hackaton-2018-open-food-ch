@@ -6,7 +6,7 @@ import {Helmet} from "react-helmet";
 export default class App extends React.Component {
   constructor(props) {
     super(props);
-    this.backend_url = `https://a6e365b1.eu.ngrok.io`
+    this.imageRecognizer = `https://a6e365b1.eu.ngrok.io`
     // this.subsequent_url = 'http://www.google.ch';
     this.state = {
       screenshot: null,
@@ -20,7 +20,7 @@ export default class App extends React.Component {
     this.setState({ screenshot });
     this.setState({ sending: 1 });
 
-    fetch(this.backend_url, {
+    fetch(this.imageRecognizer, {
       method: 'POST',
       body: screenshot
     }).then(
@@ -72,4 +72,3 @@ export default class App extends React.Component {
     )
   }
 }
-    

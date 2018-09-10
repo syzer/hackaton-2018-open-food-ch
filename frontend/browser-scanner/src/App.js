@@ -1,32 +1,40 @@
 import React from 'react';
 // import Webcam from "react-webcam";
 
+const upperFirst = e => e[0].toLocaleUpperCase() + e.substr(1)
+
 export default class App extends React.Component {
   constructor(props) {
     super(props)
-    this.backend_url = `https://f91e195e.eu.ngrok.io/`
-    this.recommender = `https://355c84da.eu.ngrok.io/`
+    this.imageRecognizer = `https://fbcf405e.eu.ngrok.io/`
+    this.recommender = `https://341f086c.eu.ngrok.io/`
     this.state = {
+      cards: [],
       ingredients: [],
+      recepiesIds: [],
+      refrigerators: [],
       sending: false,
       tab: 0,
-      recepiesIds: [],
-      cards: [],
     }
   }
 
-  // TODO
-  fetchProducts(products) {
-    return fetch(this.recommender + 'ingredients/' + products.join(','))
+  fetchBillRecognition = () =>
+    fetch(this.imageRecognizer, {
+      method: 'POST',
+      body: new FormData(document.querySelector('#take-picture-form'))
+    })
       .then(resp => resp.json())
       .catch(console.error)
-  }
 
-  fetchRecepies(products) {
-    return fetch(this.recommender + 'recepies/' + products.join(','))
+  fetchMyRefrigerator = () =>
+    fetch(this.recommender + 'my-refrigerators')
       .then(resp => resp.json())
       .catch(console.error)
-  }
+
+  fetchRecepies = (products) =>
+    fetch(this.recommender + 'recepies/' + products.join(','))
+      .then(resp => resp.json())
+      .catch(console.error)
 
   fetchPicture = (recepieId) =>
     fetch(this.recommender + 'rezepte/' + recepieId + '.json')
@@ -36,20 +44,24 @@ export default class App extends React.Component {
     e.preventDefault()
     this.setState({ sending: true })
 
-    return fetch(this.backend_url, {
-      method: 'POST',
-      body: new FormData(document.querySelector('#take-picture-form'))
-    })
-      .then(resp => resp.json())
-      .then(resp => {
+    return Promise.all([
+      this.fetchBillRecognition(),
+      this.fetchMyRefrigerator(),
+    ])
+      .then(e => {
+        console.warn(e)
+        return e
+      })
+      .then(([ingredientsOnBill, ingrediendsInMyRegrigirator]) => {
         this.setState({ sending: false })
         this.setState({
-          ingredients: resp[0]
+          ingredients: ingredientsOnBill[0], // bit weird.. but what you gonna do.. :)
+          refrigerators: ingrediendsInMyRegrigirator
         })
-        return resp[0]
+        return ingredientsOnBill[0]
       })
-      .then(products => {
-        return this.fetchRecepies(products)
+      .then(products =>
+        this.fetchRecepies(products)
           .then(recepiesIds => {
             this.setState({
               recepiesIds: JSON.stringify(recepiesIds)
@@ -57,18 +69,16 @@ export default class App extends React.Component {
             console.log('recepiesIds', recepiesIds)
             return recepiesIds
           })
-          .then(recepiesIds => {
-            return Promise.all(
+          .then(recepiesIds => Promise.all(
               recepiesIds
-                .map(id => this.fetchPicture(id)))
-          })
-          .then(allJSONS => {
-            let cards = allJSONS
+                .map(id => this.fetchPicture(id))))
+          .then(recommendedRecepies => {
+            let cards = recommendedRecepies
               .map((({ ingredientsArr, groupsArr }) => ({
                 ...groupsArr[0],
                 ingredients: ingredientsArr
                   .map(e => e.name)
-                  .map(e => e[0].toLocaleUpperCase() + e.substr(1))
+                  .map(upperFirst)
               })))
             // .map(e => e[0])
 
@@ -76,11 +86,7 @@ export default class App extends React.Component {
             this.setState({
               cards,
             })
-          })
-
-        // this.fetchProducts(products)
-        //   .then(console.warn)
-      })
+          }))
       .catch(error => {
         console.log("ERROR: " + error)
         this.setState({ sending: false })
@@ -92,7 +98,7 @@ export default class App extends React.Component {
       <div className="col s12 m7">
         <div className="card">
           <div className="card-image">
-            <img src={imgUrl} alt={title} />
+            <img src={imgUrl} alt={title}/>
             <span className="card-title">{title}</span>
           </div>
           <div className="card-content">
@@ -109,19 +115,39 @@ export default class App extends React.Component {
       </div>
     </div>
 
+  showRefrigerators = (ingredients) =>
+    <div>
+      <h3>This you have on your kitchen that expires soon:</h3>
+      <ul className="collection">
+        {ingredients.map(({ name }, i) =>
+          <li className="collection-item" /*avatar*/ key={i}>
+            {/*<img src="images/yuna.jpg" alt="" className="circle"/>*/}
+            <span className="title">{upperFirst(name)}</span>
+            {/*{e}*/}
+            <a href="#!" className="secondary-content">
+              <i className="material-icons">grade</i>
+            </a>
+          </li>
+        )}
+      </ul>
+    </div>
+
   makeBillItemsList = (ingredients) =>
-    <ul className="collection">
-      {ingredients.map((e,i) =>
-        <li className="collection-item" /*avatar*/ key={i}>
-          {/*<img src="images/yuna.jpg" alt="" className="circle"/>*/}
+    <div>
+      <h3>This you have on your bill that expired</h3>
+      <ul className="collection">
+        {ingredients.map((e, i) =>
+          <li className="collection-item" /*avatar*/ key={i}>
+            {/*<img src="images/yuna.jpg" alt="" className="circle"/>*/}
             <span className="title">{e}</span>
             {/*{e}*/}
             <a href="#!" className="secondary-content">
               <i className="material-icons">grade</i>
             </a>
-        </li>
-      )}
-    </ul>
+          </li>
+        )}
+      </ul>
+    </div>
 
   render = () =>
     <div>
@@ -160,9 +186,15 @@ export default class App extends React.Component {
           </div>
         </div>
       </div>
-      {this.makeBillItemsList(this.state.ingredients)}
       <div>
         {this.state.cards.map(this.makeCard)}
       </div>
+      {this.state.ingredients.length
+        ? this.makeBillItemsList(this.state.ingredients)
+        : null}
+
+      {this.state.refrigerators.length
+        ? this.showRefrigerators(this.state.refrigerators)
+        : null}
     </div>
 }

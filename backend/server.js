@@ -1,7 +1,7 @@
 const polka = require('polka')
 const { searchIngredient, getIngredientById } = require('./search.js')
 const fs = require('fs')
-const { concat, countBy, map, prop, pipe, flatten, toPairs, sortBy, last, reverse, take, head } = require('ramda')
+const { concat, countBy, map, pickAll, prop, pipe, flatten, toPairs, sortBy, last, reverse, take, tap, head, uniqBy } = require('ramda')
 // const { json } = require('body-parser');
 const cors = require('cors')({ origin: true })
 const serve = require('serve-static')('../data')
@@ -11,10 +11,18 @@ const { promisify } = require('util')
 const readFileAsync = promisify(fs.readFile)
 
 const db = []
+const refrigerator = [] // You have it, don't you?
 
-const mockupsRecepies = readFileAsync(__dirname + '/../data/mock_inventory.csv', 'utf-8')
+const mockupIngretientsWithRecepies = readFileAsync(__dirname + '/../data/mock_inventory.csv', 'utf-8')
   .then(e => e.split('\n').slice(1).map(e => e.split(',').shift()).map(Number))
-  .then(mockupIds => mockupIds.map(getIngredientById).map(e => e.map(({ recId }) => recId)))
+  .then(map(getIngredientById))
+
+const mockupIngredients = mockupIngretientsWithRecepies
+  .then(_(map(map(pickAll(['id', 'name']))), flatten, flatten, uniqBy(prop('id'))))
+  .then(tap(e => refrigerator[0] = e))
+
+const mockupRecepiesIds = mockupIngretientsWithRecepies
+  .then(mockupIngredients => mockupIngredients.map(e => e.map(({ recId }) => recId)))
 
 // TODO: remove `:` from search because it throws exception
 // searching for:  JST-NUMMER:~3
@@ -24,14 +32,13 @@ const mockupsRecepies = readFileAsync(__dirname + '/../data/mock_inventory.csv',
 // ^
 // Error
 
-// ['carrots', 'potatos'] => recepies
-mockupsRecepies
-  .then(mockupsRecepies => {
+mockupRecepiesIds
+  .then(mockupRecepiesIds => {
     polka()
       .use(cors, serve) // serve our recepies with pictures
-      .get('/expired-items', (req, res) =>
+      .get('/my-refrigerators', (req, res) =>
         // All stuff you have that is about to expire
-        res.end(JSON.stringify((db[0])))
+        res.end(JSON.stringify(refrigerator[0]))
       )
       .get('/ingredients/:searchterm', (req, res) => {
         const { searchterm } = req.params
@@ -47,6 +54,7 @@ mockupsRecepies
         res.end(JSON.stringify(matches))
       })
       // this gives us recommendations
+      // ['carrots', 'potatos'] => recepies
       .get('/recepies/:searchterm', (req, res) => {
         const { searchterm } = req.params
         const decodedTerm = decodeURIComponent(searchterm)
@@ -63,8 +71,8 @@ mockupsRecepies
           flatten,
         )(ingredientFound)
 
-        const bestMatches = _(
-          concat(flatten(mockupsRecepies)),
+        const bestRecepiesMatches = _(
+          concat(flatten(mockupRecepiesIds)),
           countBy(Math.floor),
           toPairs,
           sortBy(last),
@@ -73,16 +81,16 @@ mockupsRecepies
           map(_(head, Number)),
         )(recipesMatches)
 
-        db[0] = bestMatches // warning: safe for only one user
+        db[0] = bestRecepiesMatches // Warning: safe for only one user
 
-        res.end(JSON.stringify(bestMatches))
-      })
-      .get('/', (req, res) => {
-        res.end(JSON.stringify('pong'))
+        res.end(JSON.stringify(bestRecepiesMatches))
       })
       .get('/recommendations', (req, res) => {
         res.end(JSON.stringify((db[0])))
       }) // TODO not sure if we need that
+      .get('/', (req, res) => {
+        res.end(JSON.stringify('pong'))
+      })
       .listen(2001).then(_ => {
       console.log(`> Running on localhost:2001`)
     })
