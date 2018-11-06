@@ -12,6 +12,6 @@ usage () {
 
 [ "" = "$NGROK_HOST" ] && usage && exit 1
 
-echo sed -i "s_http://api.digimeals.com/data/images/Recipe/_http://$NGROK_HOST/$FRAGMENT/_" rezepte/*.json
+sed -i "s_http://api.digimeals.com/data/images/Recipe/_http://$NGROK_HOST/$FRAGMENT/_" data/rezepte/*.json
 
 exit 0
