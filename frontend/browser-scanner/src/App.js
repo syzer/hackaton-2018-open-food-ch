@@ -1,13 +1,17 @@
-import React from 'react';
-// import Webcam from "react-webcam";
+import React from 'react'
+import dotenv from 'dotenv'
+
+dotenv.config()
 
 const upperFirst = e => e[0].toLocaleUpperCase() + e.substr(1)
 
 export default class App extends React.Component {
   constructor(props) {
     super(props)
-    this.imageRecognizer = `https://fbcf405e.eu.ngrok.io/`
-    this.recommender = `https://341f086c.eu.ngrok.io/`
+
+    this.imageRecognizer = process.env.REACT_APP_IMAGE_RECOGNIZER
+    this.recommender = process.env.REACT_APP_RECOMMENDER
+
     this.state = {
       cards: [],
       ingredients: [],
@@ -18,8 +22,8 @@ export default class App extends React.Component {
     }
   }
 
-  fetchBillRecognition = () =>
-    fetch(this.imageRecognizer, {
+  fetchBillRecognition = (shop) =>
+    fetch(this.imageRecognizer + shop, {
       method: 'POST',
       body: new FormData(document.querySelector('#take-picture-form'))
     })
@@ -40,12 +44,12 @@ export default class App extends React.Component {
     fetch(this.recommender + 'rezepte/' + recepieId + '.json')
       .then(resp => resp.json())
 
-  handleClick = (e) => {
+  handleClick = shop => e => {
     e.preventDefault()
     this.setState({ sending: true })
 
     return Promise.all([
-      this.fetchBillRecognition(),
+      this.fetchBillRecognition(shop),
       this.fetchMyRefrigerator(),
     ])
       .then(e => {
@@ -172,11 +176,20 @@ export default class App extends React.Component {
               <br/>
               <div className="input-field">
                 <button
+                  className="btn waves-effect waves-light orange"
+                  type="submit"
+                  name="action"
+                  disabled={this.state.sending}
+                  onClick={this.handleClick('migros')}>
+                  Submit
+                  <i className="material-icons right">cloud</i>
+                </button>
+                <button
                   className="btn waves-effect waves-light"
                   type="submit"
                   name="action"
                   disabled={this.state.sending}
-                  onClick={this.handleClick}>
+                  onClick={this.handleClick('coop')}>
                   Submit
                   <i className="material-icons right">cloud</i>
                 </button>
